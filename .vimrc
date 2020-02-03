@@ -58,6 +58,10 @@ set noerrorbells
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " buffer movement
 map <C-J> :bnext<CR>
