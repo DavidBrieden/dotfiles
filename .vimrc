@@ -47,6 +47,7 @@ set ruler
 " 2 Spaces instead of Tab
 set expandtab
 set tabstop=2
+set shiftwidth=2
 " Status bar
 set laststatus=2
 " Enable syntax highlighting
@@ -75,6 +76,8 @@ set nowrap
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+autocmd Filetype sh setlocal tabstop=2
 
 " window movement
 nnoremap <S-J> <C-W><C-J>
