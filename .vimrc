@@ -1,9 +1,9 @@
 " vim-plug autoinstall
-""  if empty(glob('~/.vim/autoload/plug.vim'))
-""    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-""     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-""   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"" endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
   Plug 'NLKNguyen/papercolor-theme'
@@ -13,7 +13,18 @@ call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Airline Config:
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='papercolor'
+
+" ctrlp Config:
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+set updatetime=100
 
 " Color Scheme
 set t_Co=256
@@ -58,11 +69,19 @@ set noerrorbells
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+set nowrap
+
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" window movement
+nnoremap <S-J> <C-W><C-J>
+nnoremap <S-K> <C-W><C-K>
+nnoremap <S-L> <C-W><C-L>
+nnoremap <S-H> <C-W><C-H>
+
 " buffer movement
-map <C-J> :bnext<CR>
-map <C-K> :bprev<CR>
+nnoremap <C-J> :bnext<CR>
+nnoremap <C-K> :bprev<CR>
