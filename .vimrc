@@ -15,16 +15,36 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'plasticboy/vim-markdown'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'rust-lang/rust.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'racer-rust/vim-racer'
 call plug#end()
 
-" Airline Config:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Airline config:
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='papercolor'
 
-" ctrlp Config:
+" ctrlp config:
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set updatetime=100
+
+" rust config:
+let g:rustfmt_autosave = 1
+
+" racer-rust config:
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" generally VIM configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Color Scheme
 set t_Co=256
@@ -68,9 +88,13 @@ set mouse=a
 " Disable error bells
 set noerrorbells
 " Start scrolling three lines before the horizontal window border
-set scrolloff=3
+set scrolloff=10
 
 set nowrap
+" Changing buffers without saving
+set hidden
+" Set Linear at 80 chars
+set cc=80
 
 " reopening a file
 if has("autocmd")
@@ -79,6 +103,13 @@ endif
 
 autocmd Filetype sh setlocal tabstop=2
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymaps
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 " window movement
 nnoremap <S-J> <C-W><C-J>
 nnoremap <S-K> <C-W><C-K>
@@ -86,5 +117,11 @@ nnoremap <S-L> <C-W><C-L>
 nnoremap <S-H> <C-W><C-H>
 
 " buffer movement
+nnoremap <C-L> :bnext<CR>
 nnoremap <C-J> :bnext<CR>
 nnoremap <C-K> :bprev<CR>
+nnoremap <C-H> :bprev<CR>
+
+augroup Racer
+  autocmd FileType rust nmap <buffer> gs <Plug>(rust-def-split)
+augroup END
