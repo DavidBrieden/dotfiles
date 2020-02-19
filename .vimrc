@@ -6,19 +6,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'scrooloose/nerdtree'
+  Plug 'xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
   Plug 'plasticboy/vim-markdown'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'rust-lang/rust.vim'
+  Plug 'racer-rust/vim-racer'
   Plug 'majutsushi/tagbar'
   Plug 'vim-syntastic/syntastic'
-  Plug 'racer-rust/vim-racer'
+  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,6 +42,10 @@ let g:rustfmt_autosave = 1
 let g:racer_cmd = "~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
+
+" NERDTree
+" Close Vim if only NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
@@ -96,6 +101,10 @@ set hidden
 " Set Linear at 80 chars
 set cc=80
 
+" Don't litter swp files everywhere
+set backupdir=~/.cache
+set directory=~/.cache
+
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -107,8 +116,16 @@ autocmd Filetype sh setlocal tabstop=2
 " Keymaps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let mapleader = " "
+
+" Editing .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+" NERDTree
+nmap <F9> :NERDTreeToggle<CR>
 
 " window movement
 nnoremap <S-J> <C-W><C-J>
