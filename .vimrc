@@ -20,6 +20,7 @@ call plug#begin()
   Plug 'majutsushi/tagbar'
   Plug 'vim-syntastic/syntastic'
   Plug 'preservim/nerdcommenter'
+  Plug 'valloric/youcompleteme'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,6 +47,9 @@ let g:racer_insert_paren = 1
 " NERDTree
 " Close Vim if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
@@ -94,16 +98,17 @@ set mouse=a
 set noerrorbells
 " Start scrolling three lines before the horizontal window border
 set scrolloff=10
-
 set nowrap
 " Changing buffers without saving
 set hidden
 " Set Linear at 80 chars
 set cc=80
-
 " Don't litter swp files everywhere
 set backupdir=~/.cache
 set directory=~/.cache
+" new buffer splits should be at the bottom/right
+set splitbelow
+set splitright
 
 " reopening a file
 if has("autocmd")
