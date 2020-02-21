@@ -16,7 +16,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'plasticboy/vim-markdown'
   Plug 'rust-lang/rust.vim'
-  Plug 'racer-rust/vim-racer'
+  " Plug 'racer-rust/vim-racer'
   Plug 'majutsushi/tagbar'
   Plug 'vim-syntastic/syntastic'
   Plug 'preservim/nerdcommenter'
@@ -40,9 +40,9 @@ set updatetime=100
 let g:rustfmt_autosave = 1
 
 " racer-rust config:
-let g:racer_cmd = "~/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
+" let g:racer_cmd = "~/.cargo/bin/racer"
+" let g:racer_experimental_completer = 1
+" let g:racer_insert_paren = 1
 
 " NERDTree
 " Close Vim if only NERDTree is open
@@ -51,6 +51,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 
+let g:ycm_keep_logfiles = 1
+let g_ycm_log_level = 'debug'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
