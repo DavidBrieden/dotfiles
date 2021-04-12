@@ -1,6 +1,8 @@
 # Use antigen
 source $HOME/antigen.zsh
 
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
 # Use Oh-My-Zsh
 antigen use oh-my-zsh
 

@@ -51,8 +51,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 
-let g:ycm_keep_logfiles = 1
-let g_ycm_log_level = 'debug'
+" let g:ycm_keep_logfiles = 1
+" let g_ycm_log_level = 'debug'
+let g:ycm_rust_src_path = $RUST_SRC_PATH
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,6 +149,3 @@ nnoremap <C-J> :bnext<CR>
 nnoremap <C-K> :bprev<CR>
 nnoremap <C-H> :bprev<CR>
 
-augroup Racer
-  autocmd FileType rust nmap <buffer> gs <Plug>(rust-def-split)
-augroup END
