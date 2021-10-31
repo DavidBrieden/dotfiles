@@ -24,10 +24,14 @@ call plug#begin()
   Plug 'preservim/nerdcommenter'
   Plug 'valloric/youcompleteme'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  
+  Plug 'mkitt/tabline.vim'
+  Plug 'mhinz/vim-startify'
+  Plug 'posva/vim-vue'
+  Plug 'qpkorr/vim-bufkill'
+
   if has('nvim')
     Plug 'Xuyuanp/scrollbar.nvim'
-	Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+    Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
   endif
 call plug#end()
 
@@ -55,6 +59,8 @@ let g:rustfmt_autosave = 1
 " NERDTree
 " Close Vim if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" hide node_modules in NERDTree
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
@@ -89,8 +95,6 @@ colorscheme PaperColor
 
 " Enhance command-line completion
 set wildmenu
-" Don’t add empty newlines at the end of files
-"" set binary
 " File specific vim settings
 set modeline
 " Enable per-directory .vimrc files and disable unsafe commands in them
@@ -144,9 +148,6 @@ endif
 
 autocmd Filetype sh setlocal tabstop=2
 
-"set fileformats=dos
-"set no:
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,7 +155,7 @@ autocmd Filetype sh setlocal tabstop=2
 let mapleader = " "
 
 " Editing .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Tagbar
