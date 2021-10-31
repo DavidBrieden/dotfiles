@@ -1,19 +1,21 @@
 " vim-plug autoinstall
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if has('unix')
+  if empty(glob('$HOME/.vim/autoload/plug.vim'))
+    silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 endif
 
 call plug#begin()
+  Plug 'vim-airline/vim-airline' " status/tabline
   Plug 'vim-airline/vim-airline-themes'
   Plug 'NLKNguyen/papercolor-theme'
-  Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree' " file tree
   Plug 'xuyuanp/nerdtree-git-plugin'
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'vim-airline/vim-airline'
+  Plug 'tpope/vim-fugitive' " git plugin
+  Plug 'airblade/vim-gitgutter' " shows git changes
+  Plug 'ctrlpvim/ctrlp.vim' " file selection via ctrl+p
   Plug 'plasticboy/vim-markdown'
   Plug 'rust-lang/rust.vim'
   " Plug 'racer-rust/vim-racer'
@@ -21,6 +23,12 @@ call plug#begin()
   Plug 'vim-syntastic/syntastic'
   Plug 'preservim/nerdcommenter'
   Plug 'valloric/youcompleteme'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  
+  if has('nvim')
+    Plug 'Xuyuanp/scrollbar.nvim'
+	Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+  endif
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -56,6 +64,20 @@ let g:NERDSpaceDelims = 1
 let g:ycm_rust_src_path = $RUST_SRC_PATH
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+""""""""""""""""
+" Neovim:
+""""""""""""""""
+
+" Scrollbar
+if has('nvim')
+  augroup ScrollbarInit
+    autocmd!
+    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+  augroup end
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,7 +90,7 @@ colorscheme PaperColor
 " Enhance command-line completion
 set wildmenu
 " Don’t add empty newlines at the end of files
-set binary
+"" set binary
 " File specific vim settings
 set modeline
 " Enable per-directory .vimrc files and disable unsafe commands in them
@@ -121,6 +143,9 @@ if has("autocmd")
 endif
 
 autocmd Filetype sh setlocal tabstop=2
+
+"set fileformats=dos
+"set no:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
