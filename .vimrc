@@ -28,6 +28,8 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'posva/vim-vue'
   Plug 'qpkorr/vim-bufkill'
+  Plug 'mattn/emmet-vim'
+  Plug 'dense-analysis/ale' " Linting
 
   if has('nvim')
     Plug 'Xuyuanp/scrollbar.nvim'
@@ -60,7 +62,8 @@ let g:rustfmt_autosave = 1
 " Close Vim if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " hide node_modules in NERDTree
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', '^\.git$']
+let NERDTreeShowHidden=1
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
@@ -70,12 +73,19 @@ let g:NERDSpaceDelims = 1
 let g:ycm_rust_src_path = $RUST_SRC_PATH
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" ALE
+let g:ale_linters = {'javascript': ['eslint'], 'vue': ['eslint']}
+let g:ale_fixers = {'javascript': ['eslint'], 'vue': ['eslint']}
+let g:ale_linters_explicit = 1
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+
 """"""""""""""""
 " Neovim:
 """"""""""""""""
 
-" Scrollbar
 if has('nvim')
+  " Scrollbar
   augroup ScrollbarInit
     autocmd!
     autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
