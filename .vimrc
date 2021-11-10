@@ -34,6 +34,15 @@ call plug#begin()
   if has('nvim')
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+    Plug 'hrsh7th/vim-vsnip'
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-cmp', {'branch': 'main'} " Autocompletion
+    Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'} " Autocompletion with LSP
+    Plug 'hrsh7th/cmp-buffer', {'branch': 'main'} " Autocompletion in Buffer
+    Plug 'hrsh7th/cmp-path', {'branch': 'main'} " Autocompletion in Path
+    Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+    Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'} " Autocompletion for Snippets
   endif
 call plug#end()
 
@@ -79,20 +88,6 @@ let g:ale_fixers = {'javascript': ['eslint'], 'vue': ['eslint']}
 let g:ale_linters_explicit = 1
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-
-""""""""""""""""
-" Neovim:
-""""""""""""""""
-
-if has('nvim')
-  " Scrollbar
-  augroup ScrollbarInit
-    autocmd!
-    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-    autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
-  augroup end
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " generally VIM configs
