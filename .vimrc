@@ -8,6 +8,7 @@ if has('unix')
 endif
 
 call plug#begin()
+  Plug 'vim-scripts/ClosePairs'
   Plug 'vim-airline/vim-airline' " status/tabline
   Plug 'vim-airline/vim-airline-themes'
   Plug 'NLKNguyen/papercolor-theme'
@@ -179,4 +180,13 @@ nnoremap <C-L> :bnext<CR>
 nnoremap <C-J> :bnext<CR>
 nnoremap <C-K> :bprev<CR>
 nnoremap <C-H> :bprev<CR>
+
+" auto closing brackets
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
 
