@@ -11,9 +11,9 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gf', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts) -- Goto Declaration
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) -- Goto Definition
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) -- List all References
 
   --buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   --buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -35,7 +35,7 @@ end
 
 -- disable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-
+--[[
 local cmp = require'cmp'
 
 cmp.setup({
@@ -89,7 +89,7 @@ cmp.setup.cmdline(':', {
 vim.api.nvim_set_option("completeopt", "menu,menuone,noselect")
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+--]]
 -------------------------------------------------------------------------------
 
 require'lspconfig'.vuels.setup{
@@ -98,4 +98,8 @@ require'lspconfig'.vuels.setup{
   on_attach = on_attach
 }
 
-
+require'lspconfig'.rls.setup{
+  cmd = { "rls" },
+  capabilities = capabilities,
+  on_attach = on_attach
+}

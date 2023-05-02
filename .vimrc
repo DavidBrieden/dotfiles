@@ -8,7 +8,7 @@ if has('unix')
 endif
 
 call plug#begin()
-  Plug 'vim-scripts/ClosePairs'
+  Plug 'vim-scripts/ClosePairs' " automaticly insert closing brackets
   Plug 'vim-airline/vim-airline' " status/tabline
   Plug 'vim-airline/vim-airline-themes'
   Plug 'NLKNguyen/papercolor-theme'
@@ -23,27 +23,30 @@ call plug#begin()
   Plug 'majutsushi/tagbar'
   Plug 'vim-syntastic/syntastic'
   Plug 'preservim/nerdcommenter'
-  Plug 'valloric/youcompleteme'
+  " Plug 'valloric/youcompleteme'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'mkitt/tabline.vim'
   Plug 'mhinz/vim-startify'
   Plug 'posva/vim-vue'
   Plug 'qpkorr/vim-bufkill'
   Plug 'mattn/emmet-vim'
-  Plug 'dense-analysis/ale' " Linting
+  " Plug 'dense-analysis/ale' " Linting
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   if has('nvim')
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/plenary.nvim'
     " LSP
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-cmp', {'branch': 'main'} " Autocompletion
-    Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'} " Autocompletion with LSP
-    Plug 'hrsh7th/cmp-buffer', {'branch': 'main'} " Autocompletion in Buffer
-    Plug 'hrsh7th/cmp-path', {'branch': 'main'} " Autocompletion in Path
-    Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
-    Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'} " Autocompletion for Snippets
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'hrsh7th/nvim-cmp', {'branch': 'main'} " Autocompletion
+    " Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'} " Autocompletion with LSP
+    " Plug 'hrsh7th/cmp-buffer', {'branch': 'main'} " Autocompletion in Buffer
+    " Plug 'hrsh7th/cmp-path', {'branch': 'main'} " Autocompletion in Path
+    " Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+    " Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'} " Autocompletion for Snippets
   endif
 call plug#end()
 
@@ -163,6 +166,12 @@ let mapleader = " "
 " Editing .vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
