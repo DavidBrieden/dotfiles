@@ -22,7 +22,7 @@ call plug#begin()
   " Plug 'racer-rust/vim-racer'
   Plug 'majutsushi/tagbar'
   Plug 'vim-syntastic/syntastic'
-  Plug 'preservim/nerdcommenter'
+  Plug 'preservim/nerdcommenter' " commenting stuff
   " Plug 'valloric/youcompleteme'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'mkitt/tabline.vim'
@@ -37,7 +37,7 @@ call plug#begin()
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope.nvim' " file finder
     Plug 'nvim-lua/plenary.nvim'
     " LSP
     " Plug 'neovim/nvim-lspconfig'
