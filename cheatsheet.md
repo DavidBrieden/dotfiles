@@ -24,6 +24,14 @@
 * Space + fb -> Find Buffers
 * Space + fh -> Find help tags
 
+# Folding
+all folding maps start with z. With some fantasy, this looks like a folded piece of paper. see :help usr_28
+* zf -> F-old creation
+* zo -> O-pen a fold
+* zc -> C-lose a fold
+* zr -> R-educe, open all foldings one level
+* zm -> M-ore, closes all foldings one level
+
 # Misc
 * :pwd -> present working directory
 * :cd -> change directory
