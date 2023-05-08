@@ -38,7 +38,7 @@ call plug#begin()
     Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
     Plug 'hrsh7th/vim-vsnip'
     Plug 'nvim-telescope/telescope.nvim' " file finder
-    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/plenary.nvim' " dependency of telescope
     " LSP
     " Plug 'neovim/nvim-lspconfig'
     " Plug 'hrsh7th/nvim-cmp', {'branch': 'main'} " Autocompletion
