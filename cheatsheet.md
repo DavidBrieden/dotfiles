@@ -31,6 +31,23 @@ all folding maps start with z. With some fantasy, this looks like a folded piece
 * zc -> C-lose a fold
 * zr -> R-educe, open all foldings one level
 * zm -> M-ore, closes all foldings one level
+* Space + Space -> Toggles current fold
+
+# LSP
+* [g or ]g -> next or prev diagnostic
+* gd -> goto definition
+* gy -> goto type definition
+* gi -> goto implementation
+* gr -> view references
+* Space+D -> show Doc
+* rn -> rename
+* Space + F -> Format
+* Space + a -> apply codeAction
+* Space + qf -> Quick Fix
+* Space + a -> list diagnostics
+* Space + c -> list commands
+* :Fold -> Format whole buffer
+* :OR -> organizes Import in buffer
 
 # Misc
 * :pwd -> present working directory
