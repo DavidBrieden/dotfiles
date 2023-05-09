@@ -15,6 +15,7 @@ call plug#begin()
   Plug 'scrooloose/nerdtree' " file tree
   Plug 'xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive' " git plugin
+  Plug 'tpope/vim-surround' " surrounding text with brackets an stuff
   Plug 'airblade/vim-gitgutter' " shows git changes
   Plug 'ctrlpvim/ctrlp.vim' " file selection via ctrl+p
   Plug 'plasticboy/vim-markdown'
@@ -80,6 +81,7 @@ let NERDTreeShowHidden=1
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " let g:ycm_keep_logfiles = 1
 " let g_ycm_log_level = 'debug'
@@ -166,6 +168,7 @@ let mapleader = " "
 " Editing .vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ec :split ~/dotfiles/cheatsheet.md<cr>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -177,6 +180,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nmap <F8> :TagbarToggle<CR>
 " NERDTree
 nmap <F9> :NERDTreeToggle<CR>
+
+" folding
+nnoremap <leader><leader> za
 
 " window movement
 nnoremap <S-J> <C-W><C-J>
