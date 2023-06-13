@@ -17,6 +17,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive' " git plugin
   Plug 'tpope/vim-surround' " surrounding text with brackets an stuff
   Plug 'airblade/vim-gitgutter' " shows git changes
+  Plug 'easymotion/vim-easymotion' " shows git changes
   Plug 'ctrlpvim/ctrlp.vim' " file selection via ctrl+p
   Plug 'plasticboy/vim-markdown'
   Plug 'rust-lang/rust.vim'
@@ -40,6 +41,7 @@ call plug#begin()
     Plug 'hrsh7th/vim-vsnip'
     Plug 'nvim-telescope/telescope.nvim' " file finder
     Plug 'nvim-lua/plenary.nvim' " dependency of telescope
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " LSP
     " Plug 'neovim/nvim-lspconfig'
     " Plug 'hrsh7th/nvim-cmp', {'branch': 'main'} " Autocompletion
@@ -205,3 +207,14 @@ nnoremap <C-H> :bprev<CR>
 " inoremap {<CR> {<CR>}<ESC>O
 " inoremap {;<CR> {<CR>};<ESC>O
 
+" mapping for easymotion
+let g:EasyMotion_smartcase = 1
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map  f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)

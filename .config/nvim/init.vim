@@ -4,6 +4,7 @@ source $HOME/dotfiles/.vimrc
 source $HOME/dotfiles/.config/nvim/lsp.vim
 
 " luafile $HOME/dotfiles/.config/nvim/lsp.lua
+luafile $HOME/dotfiles/.config/nvim/config.lua
 
 " Scrollbar
 augroup ScrollbarInit
