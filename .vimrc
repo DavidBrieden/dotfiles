@@ -172,6 +172,9 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ec :split ~/dotfiles/cheatsheet.md<cr>
 
+" Add new line above in Insert Mode
+imap <C-ENTER> <ESC>O
+
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
