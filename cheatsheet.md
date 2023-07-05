@@ -14,6 +14,11 @@
 * r -> reloads current directory
 * R -> reloads root directory
 
+# surround.vim
+* cs'" -> change ' tags to "
+* ds" -> delete " tag
+* ysiw] -> add ] tags arround text object iw (word)
+
 # Substitution
 * \:s/foo/bar -> replaces foo with bar
 * & -> repeats last substitution
@@ -23,6 +28,7 @@
 * Space + fg -> Live Grep
 * Space + fb -> Find Buffers
 * Space + fh -> Find help tags
+* Space + fn -> Find Neovim Config Files
 
 # Folding
 all folding maps start with z. With some fantasy, this looks like a folded piece of paper. see :help usr_28
