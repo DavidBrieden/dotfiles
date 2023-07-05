@@ -2,7 +2,7 @@ local opt = vim.opt
 
 --opt.t_Co=256
 --opt.background=dark
-vim.cmd[[colorscheme PaperColor]]
+-- vim.cmd[[colorscheme PaperColor]]
 
 
 -- Ignore compiled files
@@ -26,8 +26,8 @@ opt.cindent = true
 opt.wrap = true
 
 opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.expandtab = true
 
 -- Cursorline highlighting control
@@ -50,7 +50,7 @@ opt.cursorline = true -- Highlight the current line
 
 -- Show “invisible” characters
 opt.list = true
-opt.listchars = {eol = '↵', trail = '·', tab = '▸ ' }   
+opt.listchars = {eol = '↵', trail = '·', tab = '▸ ' }
 
 -- Ignore case in searches
 opt.ignorecase = true

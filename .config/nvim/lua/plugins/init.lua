@@ -10,7 +10,13 @@ return {
     end
   }, -- status/tabline
   {"vim-airline/vim-airline-themes"},
-  {"NLKNguyen/papercolor-theme"},
+  {
+    "NLKNguyen/papercolor-theme",
+    priority = 1000,
+    init = function()
+      vim.cmd[[colorscheme PaperColor]]
+    end
+  },
   {
     "scrooloose/nerdtree",
     keys = {
@@ -72,4 +78,26 @@ return {
 
   -- file finder
   {"nvim-lua/plenary.nvim"}, -- dependency of telescope
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    init = function()
+      vim.opt.termguicolors = true
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
+    end,
+    opts = {
+      char = "",
+      char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+      },
+      space_char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+      },
+      show_trailing_blankline_indent = false,
+    },
+    config = true
+  },
+  {"nvim-treesitter/nvim-treesitter"}
 }

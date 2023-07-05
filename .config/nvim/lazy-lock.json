@@ -1,10 +1,12 @@
 {
   "ClosePairs": { "branch": "master", "commit": "38b55cdf13a51fbf346f8d24f6441a60b6d17d9f" },
   "hop.nvim": { "branch": "master", "commit": "03f0434869f1f38868618198b5f4f2ab6d39aef2" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "b7aa0aed55887edfaece23f7b46ab22232fc8741" },
   "lazy.nvim": { "branch": "main", "commit": "f8611632d0f9c6818e8eb54f9bcd1dad122b5a7f" },
   "nerdcommenter": { "branch": "master", "commit": "ab2ae4d502a26bc591db78a8548823ddd04bbc9c" },
   "nerdtree": { "branch": "master", "commit": "c46e12a886b4a6618a9e834c90f6245952567115" },
   "nerdtree-git-plugin": { "branch": "master", "commit": "e1fe727127a813095854a5b063c15e955a77eafb" },
+  "nvim-treesitter": { "branch": "master", "commit": "896f2c76229f03d6978d29fa7b12421d7c18102f" },
   "papercolor-theme": { "branch": "master", "commit": "9051480ad9129ff4ab4fffb38b44779b9081626f" },
   "plenary.nvim": { "branch": "master", "commit": "102c02903c74b93c705406bf362049383abc87c8" },
   "registers": { "branch": "main", "commit": "2ab8372bb837f05fae6b43091f10a0b725d113ca" },
