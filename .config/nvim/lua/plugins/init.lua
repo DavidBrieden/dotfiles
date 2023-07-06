@@ -1,5 +1,5 @@
 return {
-
+  {"ryanoasis/vim-devicons"},
   {"vim-scripts/ClosePairs"}, -- automaticly insert closing brackets
   {
     "vim-airline/vim-airline",
