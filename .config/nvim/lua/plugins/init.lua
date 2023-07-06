@@ -15,6 +15,10 @@ return {
     priority = 1000,
     init = function()
       vim.cmd[[colorscheme PaperColor]]
+      vim.opt.termguicolors = true
+      -- indent-blankline highlighting
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
     end
   },
   {
@@ -36,7 +40,7 @@ return {
     config = true,
     keys = {
       {"f", ":HopChar1MW<cr>"},
-      {"/", ":HopPatternMW<cr>"},
+      -- {"/", ":HopPatternMW<cr>"},
       {"<leader>w", ":HopWordMW<cr>"},
     }
   }, -- shows git changes
@@ -80,11 +84,6 @@ return {
   {"nvim-lua/plenary.nvim"}, -- dependency of telescope
   {
     "lukas-reineke/indent-blankline.nvim",
-    init = function()
-      vim.opt.termguicolors = true
-      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
-    end,
     opts = {
       char = "",
       char_highlight_list = {
@@ -95,7 +94,12 @@ return {
         "IndentBlanklineIndent1",
         "IndentBlanklineIndent2",
       },
+      filetype_exclude = {
+        "startify"
+      },
       show_trailing_blankline_indent = false,
+      show_current_context = true,
+      show_current_context_start = true
     },
     config = true
   },
