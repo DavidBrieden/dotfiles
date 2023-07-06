@@ -4,6 +4,7 @@ local opt = vim.opt
 --opt.background=dark
 -- vim.cmd[[colorscheme PaperColor]]
 
+opt.mousemoveevent = true
 
 -- Ignore compiled files
 opt.wildignore = "__pycache__"

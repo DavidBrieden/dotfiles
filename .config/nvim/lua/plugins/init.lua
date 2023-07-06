@@ -1,12 +1,44 @@
 return {
   {"ryanoasis/vim-devicons"},
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    lazy = false,
+    keys = {
+      {"<leader>gb", ":BufferLinePick<cr>"},
+      {"<leader>gD", ":BufferLinePickClose<cr>"},
+      {"<S-C-h>", ":BufferLineMovePrev<cr>"},
+      {"<S-C-l>", ":BufferLineMoveNext<cr>"},
+    },
+    opts = {
+      options = {
+        separator_style = "slant",
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = {"close"}
+        },
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "File Explorer",
+            highlight = "Directory",
+            separator = true -- use a "true" to enable the default, or set your own character
+          }
+        }
+      }
+    },
+    config = true,
+
+  },
   {"vim-scripts/ClosePairs"}, -- automaticly insert closing brackets
   {
     "vim-airline/vim-airline",
     init = function()
       vim.g.airline_powerline_fonts = true
       vim.g.airline_theme= "papercolor"
-      vim.g["airline#extensions#tabline#enabled"] = true
+      -- vim.g["airline#extensions#tabline#enabled"] = true
     end
   }, -- status/tabline
   {"vim-airline/vim-airline-themes"},
