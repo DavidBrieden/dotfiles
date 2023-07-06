@@ -21,17 +21,6 @@ return {
       vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
     end
   },
-  {
-    "scrooloose/nerdtree",
-    keys = {
-      {"<F9>", ":NERDTreeToggle<cr>"}
-    },
-    init = function()
-      vim.g.NERDTreeIgnore = {"node_modules", ".git"}
-      vim.g.NERDTreeShowHidden=1
-    end
-  }, -- file tree
-  {"xuyuanp/nerdtree-git-plugin"},
   {"tpope/vim-fugitive"}, -- git plugin
   {"tpope/vim-surround"}, -- surrounding text with brackets an stuff
   {"airblade/vim-gitgutter"}, -- shows git changes
