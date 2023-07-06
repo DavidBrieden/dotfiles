@@ -34,14 +34,16 @@ return {
   },
   {"vim-scripts/ClosePairs"}, -- automaticly insert closing brackets
   {
-    "vim-airline/vim-airline",
-    init = function()
-      vim.g.airline_powerline_fonts = true
-      vim.g.airline_theme= "papercolor"
-      -- vim.g["airline#extensions#tabline#enabled"] = true
-    end
-  }, -- status/tabline
-  {"vim-airline/vim-airline-themes"},
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        disabled_filetypes = {"startify", "neo-tree"},
+      },
+      sections = {
+        lualine_x = {'encoding', 'filetype'},
+      },
+    }
+  },
   {
     "NLKNguyen/papercolor-theme",
     priority = 1000,
