@@ -30,7 +30,6 @@ return {
       }
     },
     config = true,
-
   },
   {"vim-scripts/ClosePairs"}, -- automaticly insert closing brackets
   {
@@ -45,10 +44,15 @@ return {
     }
   },
   {
-    "NLKNguyen/papercolor-theme",
+    "adisen99/apprentice.nvim",
+    dependencies = {"rktjmp/lush.nvim"},
     priority = 1000,
+    config = function()
+      require("lush")(require("apprentice").setup())
+    end,
     init = function()
-      vim.cmd[[colorscheme PaperColor]]
+      vim.g.apprentice_contrast_dark = "hard"
+      vim.cmd[[colorscheme apprentice]]
       vim.opt.termguicolors = true
       -- indent-blankline highlighting
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
