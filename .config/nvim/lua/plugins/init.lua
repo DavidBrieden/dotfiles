@@ -19,8 +19,8 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = false,
     keys = {
-      {"<leader>gb", ":BufferLinePick<cr>"},
-      {"<leader>gD", ":BufferLinePickClose<cr>"},
+      {"<leader>pb", ":BufferLinePick<cr>"},
+      {"<leader>pD", ":BufferLinePickClose<cr>"},
       {"<S-C-h>", ":BufferLineMovePrev<cr>"},
       {"<S-C-l>", ":BufferLineMoveNext<cr>"},
     },
@@ -143,5 +143,6 @@ return {
     },
     config = true
   },
-  {"nvim-treesitter/nvim-treesitter"}
+  {"nvim-treesitter/nvim-treesitter"},
+  {"L3MON4D3/LuaSnip", config=true}
 }
