@@ -57,10 +57,13 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-cmdline'
+      'hrsh7th/cmp-cmdline',
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp-signature-help"
     },
     opts = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
@@ -71,6 +74,45 @@ return {
           { name = 'cmdline' }
         })
       })
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local handlers = require('nvim-autopairs.completion.handlers')
+      local cmp = require('cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done({
+          filetypes = {
+            -- "*" is a alias to all filetypes
+            ["*"] = {
+              ["("] = {
+                kind = {
+                  cmp.lsp.CompletionItemKind.Function,
+                  cmp.lsp.CompletionItemKind.Method,
+                },
+                handler = handlers["*"]
+              }
+            },
+            lua = {
+              ["("] = {
+                kind = {
+                  cmp.lsp.CompletionItemKind.Function,
+                  cmp.lsp.CompletionItemKind.Method
+                },
+                ---@param char string
+                ---@param item table item completion
+                ---@param bufnr number buffer number
+                ---@param rules table
+                ---@param commit_character table<string>
+                handler = function(char, item, bufnr, rules, commit_character)
+                  -- Your handler function. Inpect with print(vim.inspect{char, item, bufnr, rules, commit_character})
+                end
+              }
+            },
+            -- Disable for tex
+            tex = false
+          }
+        })
+      )
 
       return {
         snippet = {
@@ -101,17 +143,13 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          ["<CR>"] = cmp.mapping({
-            i = function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end,
-            s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-          }),
+          ['<CR>'] = function(fallback)
+            if cmp.visible() then
+              cmp.confirm({ select = true, bemavior = cmp.ConfirmBehavior.Replace })
+            else
+              fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
+            end
+          end,
           ['<C-e>'] = cmp.mapping.abort(),
           ['<Esc>'] = cmp.mapping.close(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -122,6 +160,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = 'nvim_lsp_signature_help' }
         }),
       }
     end
@@ -150,4 +189,9 @@ return {
     }
     end
   },
+  {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      opts = {} -- this is equalent to setup({}) function
+  }
 }
