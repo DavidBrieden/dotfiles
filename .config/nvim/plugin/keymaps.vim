@@ -1,14 +1,6 @@
 
-" Editing .vimrc
-nnoremap <leader>ev :split $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>ec :split ~/dotfiles/cheatsheet.md<cr>
-
 " Add new line above in Insert Mode
 imap <C-ENTER> <ESC>O
-
-" folding
-nnoremap <leader><leader> za
 
 " window movement
 nnoremap <S-J> <C-W><C-J>

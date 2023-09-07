@@ -80,8 +80,10 @@ return {
     config = true,
     keys = {
       {"f", ":HopChar1MW<cr>"},
-      -- {"/", ":HopPatternMW<cr>"},
       {"<leader>w", ":HopWordMW<cr>", desc = "Hop to Word"},
+      {"f", "<cmd>HopChar1MW<cr>", mode='v'},
+      {"<leader>w", "<cmd>HopWordMW<cr>", desc = "Hop to Word", mode='v'},
+      -- {"/", ":HopPatternMW<cr>"},
     }
   }, -- shows git changes
   {
@@ -100,25 +102,6 @@ return {
   {"mhinz/vim-startify"},
   {"qpkorr/vim-bufkill"},
   {"Xuyuanp/scrollbar.nvim"},
-  {
-    "tversteeg/registers.nvim",
-    name = "registers",
-    keys = {
-        { "\"",    mode = { "n", "v" } },
-        { "<C-R>", mode = "i" }
-    },
-    opts = {
-      show_empty = false,
-      window = {
-        border = "double"
-      }
-    },
-    cmd = "Registers",
-    config = true
-    --config = function()
-    --    require("registers").setup()
-    --end,
-  },
 
   -- file finder
   {"nvim-lua/plenary.nvim"}, -- dependency of telescope
