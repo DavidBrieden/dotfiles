@@ -18,6 +18,7 @@
 * cs'" -> change ' tags to "
 * ds" -> delete " tag
 * ysiw] -> add ] tags arround text object iw (word)
+* S) -> in Visual: surrounds selected text with ) tags
 
 # Substitution
 * \:s/foo/bar -> replaces foo with bar
