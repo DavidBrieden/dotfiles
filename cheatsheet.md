@@ -8,8 +8,9 @@
 # Buffers
 * :BD -> closes file without closing the split. see bufkill.vim
 
-# NERDTREE
-* most keymaps only works in NerdTree Panel
+# NEOTREE
+* most keymaps only works in NerdTree Panel (F9)
+* H -> toggle hidden files
 * CD -> changes directory to current pwd
 * r -> reloads current directory
 * R -> reloads root directory
