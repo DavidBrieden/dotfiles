@@ -22,7 +22,7 @@ return {
       keymap_set('n', '<leader>fb', builtin.buffers, {desc= "Find Buffers"})
       keymap_set('n', '<leader>fh', builtin.help_tags, {desc= "Find Help Tags"})
       keymap_set('n', '<leader>fn', find_nvim, {desc= "Find Nvim Config Files"})
-      keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, {desc= "Find Nvim Config Files"})
+      keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, {desc= "Select Emojis"})
     end
   },
   {
