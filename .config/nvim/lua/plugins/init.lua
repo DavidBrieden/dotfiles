@@ -107,22 +107,41 @@ return {
   {"nvim-lua/plenary.nvim"}, -- dependency of telescope
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     opts = {
-      char = "",
-      char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-      },
-      space_char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-      },
-      filetype_exclude = {
-        "startify"
-      },
-      show_trailing_blankline_indent = false,
-      show_current_context = true,
-      show_current_context_start = true
+        indent = {
+          highlight = {
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
+          },
+          char = " "
+        },
+
+        whitespace = {
+          highlight = {
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
+          },
+          remove_blankline_trail = false
+        },
+        scope = {
+          char = "|"
+        }
+      -- char = "",
+      -- char_highlight_list = {
+      --   "IndentBlanklineIndent1",
+      --   "IndentBlanklineIndent2",
+      -- },
+      -- space_char_highlight_list = {
+      --   "IndentBlanklineIndent1",
+      --   "IndentBlanklineIndent2",
+      -- },
+      -- filetype_exclude = {
+      --   "startify"
+      -- },
+      -- show_trailing_blankline_indent = false,
+      -- show_current_context = true,
+      -- show_current_context_start = true
     },
     config = true
   },
