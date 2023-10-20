@@ -193,5 +193,20 @@ return {
       'windwp/nvim-autopairs',
       event = "InsertEnter",
       opts = {} -- this is equalent to setup({}) function
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require("null-ls")
+
+      -- register any number of sources simultaneously
+      local sources = {
+         null_ls.builtins.code_actions.eslint,
+         null_ls.builtins.diagnostics.eslint,
+         null_ls.builtins.formatting.eslint
+      }
+
+      null_ls.setup({ sources = sources })
+    end
   }
 }
