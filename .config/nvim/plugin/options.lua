@@ -81,3 +81,6 @@ opt.colorcolumn = "120"
 -- new buffer splits should be at the bottom/right
 opt.splitbelow = true
 opt.splitright = true
+
+-- make column for git and stuff up to 3 signs wide
+opt.signcolumn = 'auto:3'

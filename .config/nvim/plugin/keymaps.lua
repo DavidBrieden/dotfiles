@@ -16,3 +16,7 @@ keymap("n", "<leader>ev", ":split $MYVIMRC<cr>", default_opts("Open vimrc"))
 
 -- folding
 keymap("n", "<leader><leader>", "za", default_opts("Toggle fold under cursor"))
+
+keymap("n", "<C-F2>", "m;", {})
+keymap("n", "<F2>", "m]", {})
+keymap("n", "<S-F2>", "m[", {})
