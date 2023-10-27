@@ -11,6 +11,7 @@ end
 return {
   {
     "nvim-telescope/telescope.nvim",
+    file_ignore_patterns = {".git/", "node_modules/"},
     init = function()
       local builtin = require('telescope.builtin')
       local wk = require("which-key")
