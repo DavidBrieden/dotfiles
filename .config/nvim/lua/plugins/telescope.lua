@@ -23,7 +23,8 @@ return {
       keymap_set('n', '<leader>fb', builtin.buffers, {desc= "Find Buffers"})
       keymap_set('n', '<leader>fh', builtin.help_tags, {desc= "Find Help Tags"})
       keymap_set('n', '<leader>fn', find_nvim, {desc= "Find Nvim Config Files"})
-      keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, {desc= "Select Emojis"})
+      keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, {desc= "Select Emoji"})
+      keymap_set('n', '<leader>fs', require("session_manager").load_session, {desc= "Select Session"})
     end
   },
   {
@@ -31,5 +32,12 @@ return {
     init = function()
       require("telescope").load_extension("emoji")
     end
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    init = function()
+      require("telescope").load_extension("ui-select")
+    end
+
   }
 }

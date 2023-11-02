@@ -190,5 +190,23 @@ return {
 {
   'chentoast/marks.nvim',
   config = true
+},
+{
+  'Shatur/neovim-session-manager',
+  config = function()
+    local config = require('session_manager.config')
+    require('session_manager').setup({
+      autoload_mode = config.AutoloadMode.Disabled,
+      autosave_only_in_session = true
+    })
+
+    vim.api.nvim_create_autocmd({ 'User' }, {
+      pattern = "SessionLoadPost",
+      -- group = config_group,
+      callback = function()
+        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+      end,
+    })
+  end
 }
 }
