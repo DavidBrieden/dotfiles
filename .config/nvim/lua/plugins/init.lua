@@ -120,7 +120,7 @@ return {
           remove_blankline_trail = false
         },
         scope = {
-          char = "|"
+          char = "│"
         }
       -- char = "",
       -- char_highlight_list = {
