@@ -76,16 +76,11 @@ return {
   {"tpope/vim-surround"}, -- surrounding text with brackets an stuff
   {"airblade/vim-gitgutter"}, -- shows git changes
   {
-    "phaazon/hop.nvim",
-    config = true,
-    keys = {
-      {"f", ":HopChar1MW<cr>"},
-      {"<leader>w", ":HopWordMW<cr>", desc = "Hop to Word"},
-      {"f", "<cmd>HopChar1MW<cr>", mode='v'},
-      {"<leader>w", "<cmd>HopWordMW<cr>", desc = "Hop to Word", mode='v'},
-      -- {"/", ":HopPatternMW<cr>"},
-    }
-  }, -- shows git changes
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  },
   {
     "majutsushi/tagbar",
     keys = {
