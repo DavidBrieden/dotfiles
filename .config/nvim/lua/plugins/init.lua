@@ -61,7 +61,28 @@ return {
     dependencies = {"rktjmp/lush.nvim"},
     priority = 1000,
     config = function()
-      require("lush")(require("apprentice").setup())
+      require("lush")(require("apprentice").setup({
+        plugins = {
+          "buftabline",
+          "coc",
+          "cmp", -- nvim-cmp
+          "fzf",
+          "gitgutter",
+          "gitsigns",
+          "lsp",
+          "lspsaga",
+          "nerdtree",
+          "netrw",
+          "nvimtree",
+          "neogit",
+          "packer",
+          "signify",
+          "startify",
+          "syntastic",
+          "telescope",
+          "treesitter"
+        },
+      }))
     end,
     init = function()
       vim.g.apprentice_contrast_dark = "hard"
@@ -70,6 +91,18 @@ return {
       -- indent-blankline highlighting
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
       vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
+
+      local highlights = {
+        IlluminatedWord = { bg = "#636363" },
+        IlluminatedCurWord = { bg = "#636363" },
+        IlluminatedWordText = { bg = "#636363" },
+        IlluminatedWordRead = { bg = "#636363" },
+        IlluminatedWordWrite = { bg = "#636363" },
+      }
+
+      for group, value in pairs(highlights) do
+          vim.api.nvim_set_hl(0, group, value)
+      end
     end
   },
   {"tpope/vim-fugitive"}, -- git plugin
@@ -122,21 +155,6 @@ return {
         scope = {
           char = "│"
         }
-      -- char = "",
-      -- char_highlight_list = {
-      --   "IndentBlanklineIndent1",
-      --   "IndentBlanklineIndent2",
-      -- },
-      -- space_char_highlight_list = {
-      --   "IndentBlanklineIndent1",
-      --   "IndentBlanklineIndent2",
-      -- },
-      -- filetype_exclude = {
-      --   "startify"
-      -- },
-      -- show_trailing_blankline_indent = false,
-      -- show_current_context = true,
-      -- show_current_context_start = true
     },
     config = true
   },
@@ -201,5 +219,8 @@ return {
       end,
     })
   end
+},
+{
+  "RRethy/vim-illuminate",
 }
 }
