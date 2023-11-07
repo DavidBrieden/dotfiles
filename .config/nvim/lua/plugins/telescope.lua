@@ -11,32 +11,48 @@ end
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {"xiyaowong/telescope-emoji.nvim"},
+      {'nvim-telescope/telescope-ui-select.nvim'},
+      {'nvim-telescope/telescope-live-grep-args.nvim'}
+    },
     init = function()
       local builtin = require('telescope.builtin')
+      local telescope = require('telescope')
       local wk = require("which-key")
       local keymap_set = vim.keymap.set
 
+      local lga_actions = require("telescope-live-grep-args.actions")
+      local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+
+      telescope.setup {
+        extensions = {
+          live_grep_args = {
+            auto_quoting = true, -- enable/disable auto-quoting
+            -- define mappings, e.g.
+            mappings = { -- extend mappings
+              i = {
+                ["<C-k>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              },
+            },
+          }
+        }
+      }
+      require("telescope").load_extension("live_grep_args")
+      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("emoji")
+
       wk.register({["<leader>f"] = {name = "+Telescope"}})
       keymap_set('n', '<leader>ff', builtin.find_files, {desc= "Find Files"})
-      keymap_set('n', '<leader>fg', builtin.live_grep, {desc= "Live Grep"})
+      keymap_set("n", "<leader>fg", require("telescope").extensions.live_grep_args.live_grep_args, {desc= "Live Grep"})
       keymap_set('n', '<leader>fb', builtin.buffers, {desc= "Find Buffers"})
       keymap_set('n', '<leader>fh', builtin.help_tags, {desc= "Find Help Tags"})
       keymap_set('n', '<leader>fn', find_nvim, {desc= "Find Nvim Config Files"})
       keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, {desc= "Select Emoji"})
       keymap_set('n', '<leader>fs', require("session_manager").load_session, {desc= "Select Session"})
-    end
-  },
-  {
-    "xiyaowong/telescope-emoji.nvim",
-    init = function()
-      require("telescope").load_extension("emoji")
-    end
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    init = function()
-      require("telescope").load_extension("ui-select")
-    end
 
-  }
+      keymap_set("n", "<leader>g", function() live_grep_args_shortcuts.grep_word_under_cursor({postfix= "", quote=false}) end, {desc= "Grep word unter cursor"})
+      keymap_set("v", "<leader>g", function() live_grep_args_shortcuts.grep_visual_selection({postfix= "", quote=false}) end, {desc= "Grep selected text"})
+    end
+  },
 }
