@@ -64,6 +64,8 @@ return {
     opts = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local handlers = require('nvim-autopairs.completion.handlers')
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
@@ -75,9 +77,6 @@ return {
         })
       })
 
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local handlers = require('nvim-autopairs.completion.handlers')
-      local cmp = require('cmp')
       cmp.event:on(
         'confirm_done',
         cmp_autopairs.on_confirm_done({
