@@ -1,5 +1,5 @@
 return {
-  {"ryanoasis/vim-devicons"},
+  { "ryanoasis/vim-devicons" },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -19,10 +19,10 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = false,
     keys = {
-      {"<leader>pb", ":BufferLinePick<cr>"},
-      {"<leader>pD", ":BufferLinePickClose<cr>"},
-      {"<S-C-h>", ":BufferLineMovePrev<cr>"},
-      {"<S-C-l>", ":BufferLineMoveNext<cr>"},
+      { "<leader>pb", ":BufferLinePick<cr>" },
+      { "<leader>pD", ":BufferLinePickClose<cr>" },
+      { "<S-C-h>",    ":BufferLineMovePrev<cr>" },
+      { "<S-C-l>",    ":BufferLineMoveNext<cr>" },
     },
     opts = {
       options = {
@@ -30,7 +30,7 @@ return {
         hover = {
           enabled = true,
           delay = 200,
-          reveal = {"close"}
+          reveal = { "close" }
         },
         offsets = {
           {
@@ -44,21 +44,21 @@ return {
     },
     config = true,
   },
-  {"vim-scripts/ClosePairs"}, -- automaticly insert closing brackets
+  { "vim-scripts/ClosePairs" }, -- automaticly insert closing brackets
   {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        disabled_filetypes = {"startify", "neo-tree"},
+        disabled_filetypes = { "startify", "neo-tree" },
       },
       sections = {
-        lualine_x = {'encoding', 'filetype'},
+        lualine_x = { 'encoding', 'filetype' },
       },
     }
   },
   {
     "adisen99/apprentice.nvim",
-    dependencies = {"rktjmp/lush.nvim"},
+    dependencies = { "rktjmp/lush.nvim" },
     priority = 1000,
     config = function()
       require("lush")(require("apprentice").setup({
@@ -86,7 +86,7 @@ return {
     end,
     init = function()
       vim.g.apprentice_contrast_dark = "hard"
-      vim.cmd[[colorscheme apprentice]]
+      vim.cmd [[colorscheme apprentice]]
       vim.opt.termguicolors = true
       -- indent-blankline highlighting
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
@@ -101,13 +101,13 @@ return {
       }
 
       for group, value in pairs(highlights) do
-          vim.api.nvim_set_hl(0, group, value)
+        vim.api.nvim_set_hl(0, group, value)
       end
     end
   },
-  {"tpope/vim-fugitive"}, -- git plugin
-  {"tpope/vim-surround"}, -- surrounding text with brackets an stuff
-  {"airblade/vim-gitgutter"}, -- shows git changes
+  { "tpope/vim-fugitive" },     -- git plugin
+  { "tpope/vim-surround" },     -- surrounding text with brackets an stuff
+  { "airblade/vim-gitgutter" }, -- shows git changes
   {
     'ggandor/leap.nvim',
     config = function()
@@ -117,7 +117,7 @@ return {
   {
     "majutsushi/tagbar",
     keys = {
-      {"<F8>", ":TagbarToggle<cr>"}
+      { "<F8>", ":TagbarToggle<cr>" }
     }
   },
   {
@@ -127,40 +127,40 @@ return {
       vim.g.NERDDefaultAlign = 'left'
     end
   }, -- commenting stuff
-  {"mhinz/vim-startify"},
-  {"qpkorr/vim-bufkill"},
-  {"Xuyuanp/scrollbar.nvim"},
+  { "mhinz/vim-startify" },
+  { "qpkorr/vim-bufkill" },
+  { "Xuyuanp/scrollbar.nvim" },
 
   -- file finder
-  {"nvim-lua/plenary.nvim"}, -- dependency of telescope
+  { "nvim-lua/plenary.nvim" }, -- dependency of telescope
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
-        indent = {
-          highlight = {
-            "IndentBlanklineIndent1",
-            "IndentBlanklineIndent2",
-          },
-          char = " "
+      indent = {
+        highlight = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
         },
+        char = " "
+      },
 
-        whitespace = {
-          highlight = {
-            "IndentBlanklineIndent1",
-            "IndentBlanklineIndent2",
-          },
-          remove_blankline_trail = false
+      whitespace = {
+        highlight = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
         },
-        scope = {
-          char = "│"
-        }
+        remove_blankline_trail = false
+      },
+      scope = {
+        char = "│"
+      }
     },
     config = true
   },
   {
     "L3MON4D3/LuaSnip",
-    config = function() 
+    config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       local ls = require("luasnip")
       -- some shorthands...
@@ -172,20 +172,20 @@ return {
       local choice = ls.choice_node
       local dynamicn = ls.dynamic_node
 
-      local date = function() return {os.date('%Y-%m-%d')} end
+      local date = function() return { os.date('%Y-%m-%d') } end
 
       ls.add_snippets(nil, {
-          all = {
-              snip({
-                  trig = "date",
-                  namr = "Date",
-                  dscr = "Date in the form of YYYY-MM-DD",
-              }, {
-                  func(date, {}),
-              }),
-          },
+        all = {
+          snip({
+            trig = "date",
+            namr = "Date",
+            dscr = "Date in the form of YYYY-MM-DD",
+          }, {
+            func(date, {}),
+          }),
+        },
       })
-    end, 
+    end,
     dependencies = { "rafamadriz/friendly-snippets" },
   },
   {
@@ -195,32 +195,67 @@ return {
     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
     lazy = not vim.g.started_by_firenvim,
     build = function()
-        vim.fn["firenvim#install"](0)
+      vim.fn["firenvim#install"](0)
     end
-},
-{
-  'chentoast/marks.nvim',
-  config = true
-},
-{
-  'Shatur/neovim-session-manager',
-  config = function()
-    local config = require('session_manager.config')
-    require('session_manager').setup({
-      autoload_mode = config.AutoloadMode.Disabled,
-      autosave_only_in_session = true
-    })
+  },
+  {
+    'chentoast/marks.nvim',
+    config = true
+  },
+  {
+    'Shatur/neovim-session-manager',
+    config = function()
+      local config = require('session_manager.config')
+      require('session_manager').setup({
+        autoload_mode = config.AutoloadMode.Disabled,
+        autosave_only_in_session = true
+      })
 
-    vim.api.nvim_create_autocmd({ 'User' }, {
-      pattern = "SessionLoadPost",
-      -- group = config_group,
-      callback = function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-      end,
-    })
-  end
-},
-{
-  "RRethy/vim-illuminate",
-}
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = "SessionLoadPost",
+        -- group = config_group,
+        callback = function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+        end,
+      })
+    end
+  },
+  {
+    "RRethy/vim-illuminate",
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    -- lazy = true,
+    -- ft = "markdown",
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    -- event = {
+    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+    --   "BufReadPre path/to/my-vault/**.md",
+    --   "BufNewFile path/to/my-vault/**.md",
+    -- },
+    -- dependencies = {
+    --   -- Required.
+    --   "nvim-lua/plenary.nvim",
+    -- },
+    opts = {
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/documents/Zettelkasten",
+        },
+      },
+      mappings = {
+        ["gf"] = {
+          action = function()
+            return require("obsidian").util.gf_passthrough()
+          end,
+          opts = { noremap = false, expr = true, buffer = true },
+        },
+      },
+
+      -- see below for full list of options 👇
+    },
+  }
 }

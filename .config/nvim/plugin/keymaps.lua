@@ -27,3 +27,12 @@ keymap("i", "<C-h>", "<Left>", default_opts("move left"))
 keymap("i", "<C-j>", "<Down>", default_opts("move down"))
 keymap("i", "<C-k>", "<Up>", default_opts("move up"))
 keymap("i", "<C-l>", "<Right>", default_opts("move right"))
+
+-- obsidian
+vim.keymap.set("n", "gf", function()
+  if require("obsidian").util.cursor_on_markdown_link() then
+      return "<cmd>ObsidianFollowLink<CR>"
+  else
+    return "gf"
+  end
+end, { noremap = false, expr = true })

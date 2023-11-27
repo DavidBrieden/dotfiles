@@ -5,14 +5,17 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects"
     },
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup {
         highlight = { enable = false },
         indent = { enable = true },
         incremental_selection = {
           enable = true,
           keymaps = {
-            scope_incremental = false,
-            node_decremental = "<bs>",
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            node_decremental = '<S-CR>',
+            scope_incremental = '<TAB>',
+            scope_decremental = '<S-TAB>',
           },
         },
         textobjects = {
