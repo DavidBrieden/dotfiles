@@ -161,6 +161,18 @@ return {
         highlight = {
           "IndentBlanklineIndent1",
           "IndentBlanklineIndent2",
+        },
+        char = " "
+      },
+
+      whitespace = {
+        highlight = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+        },
+        remove_blankline_trail = false
+      },
+      scope = {
         char = "│"
       }
     },
