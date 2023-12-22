@@ -49,7 +49,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        disabled_filetypes = { "startify", "neo-tree" },
+        disabled_filetypes = { "startify", "neo-tree", "minimap" },
       },
       sections = {
         lualine_x = { 'encoding', 'filetype' },
@@ -129,7 +129,17 @@ return {
   }, -- commenting stuff
   { "mhinz/vim-startify" },
   { "qpkorr/vim-bufkill" },
-  { "Xuyuanp/scrollbar.nvim" },
+  -- { "Xuyuanp/scrollbar.nvim" },
+  {
+    "wfxr/minimap.vim",
+    -- version = false,
+    init = function()
+      -- require('mini.map').setup()
+      vim.g.minimap_auto_start = true
+      vim.g.minimap_auto_start_win_enter = true
+      vim.g.minimap_git_colors = true
+    end
+  },
 
   -- file finder
   { "nvim-lua/plenary.nvim" }, -- dependency of telescope
@@ -216,10 +226,12 @@ return {
         -- group = config_group,
         callback = function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+          vim.cmd [[Minimap]]
         end,
       })
     end
   },
+  -- automaticly highlight other uses of the word under the cursor
   {
     "RRethy/vim-illuminate",
   }
