@@ -10,7 +10,6 @@ return {
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      -- refer to the configuration section below
     }
   },
   {
@@ -129,18 +128,29 @@ return {
   }, -- commenting stuff
   { "mhinz/vim-startify" },
   { "qpkorr/vim-bufkill" },
-  -- { "Xuyuanp/scrollbar.nvim" },
   {
-    "wfxr/minimap.vim",
-    -- version = false,
-    init = function()
-      -- require('mini.map').setup()
-      vim.g.minimap_auto_start = true
-      vim.g.minimap_auto_start_win_enter = true
-      vim.g.minimap_git_colors = true
-    end
+    "echasnovski/mini.map",
+    main = "mini.map",
+    lazy = false,
+    keys = {
+      { "<Leader>mm", "<cmd>lua MiniMap.toggle()<CR>", desc = "toggle Minimap" },
+    },
+    opts = function()
+      local minimap = require("mini.map")
+      return {
+        symbols = {
+          encode = require("mini.map").gen_encode_symbols.dot("4x2"),
+        },
+        integrations = {
+          minimap.gen_integration.diagnostic(),
+          minimap.gen_integration.builtin_search(),
+          minimap.gen_integration.gitsigns(),
+        },
+        show_integration_count = false,
+        window = { winblend = 0 },
+      }
+    end,
   },
-
   -- file finder
   { "nvim-lua/plenary.nvim" }, -- dependency of telescope
   {
@@ -151,18 +161,6 @@ return {
         highlight = {
           "IndentBlanklineIndent1",
           "IndentBlanklineIndent2",
-        },
-        char = " "
-      },
-
-      whitespace = {
-        highlight = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
-        },
-        remove_blankline_trail = false
-      },
-      scope = {
         char = "│"
       }
     },
@@ -226,7 +224,7 @@ return {
         -- group = config_group,
         callback = function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-          vim.cmd [[Minimap]]
+          require("mini.map").open()
         end,
       })
     end
