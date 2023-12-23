@@ -104,9 +104,13 @@ return {
       end
     end
   },
-  { "tpope/vim-fugitive" },     -- git plugin
-  { "tpope/vim-surround" },     -- surrounding text with brackets an stuff
-  { "airblade/vim-gitgutter" }, -- shows git changes
+  { "tpope/vim-fugitive" }, -- git plugin
+  { "tpope/vim-surround" }, -- surrounding text with brackets an stuff
+  -- { "airblade/vim-gitgutter" }, -- shows git changes
+  {
+    "lewis6991/gitsigns.nvim",
+    config = true
+  },
   {
     'ggandor/leap.nvim',
     config = function()
@@ -146,8 +150,10 @@ return {
           minimap.gen_integration.builtin_search(),
           minimap.gen_integration.gitsigns(),
         },
-        show_integration_count = false,
-        window = { winblend = 0 },
+        window = {
+          winblend = 0,
+          show_integration_count = false,
+        },
       }
     end,
   },
