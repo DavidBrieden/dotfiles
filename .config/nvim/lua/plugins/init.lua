@@ -124,12 +124,12 @@ return {
     }
   },
   {
-    "preservim/nerdcommenter",
-    init = function()
-      vim.g.NERDSpaceDelims = true
-      vim.g.NERDDefaultAlign = 'left'
-    end
-  }, -- commenting stuff
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  },
   { "mhinz/vim-startify" },
   { "qpkorr/vim-bufkill" },
   {

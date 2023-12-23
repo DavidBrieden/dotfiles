@@ -31,6 +31,7 @@
 * Space + fb -> Find Buffers
 * Space + fh -> Find help tags
 * Space + fn -> Find Neovim Config Files
+* Space + fs -> Open Session List
 
 # Folding
 all folding maps start with z. With some fantasy, this looks like a folded piece of paper. see :help usr_28
@@ -61,4 +62,4 @@ all folding maps start with z. With some fantasy, this looks like a folded piece
 * :pwd -> present working directory
 * :cd -> change directory
 * gf -> goto file under the cursor
-* Space + c + Space -> comment/uncomment current line
+* gcc -> comment/uncomment current line
