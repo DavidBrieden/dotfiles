@@ -1,4 +1,5 @@
 return {
+  { "tpope/vim-repeat" },
   { "ryanoasis/vim-devicons" },
   {
     "folke/which-key.nvim",
@@ -114,7 +115,37 @@ return {
   {
     'ggandor/leap.nvim',
     config = function()
+      require("leap").opts.highlight_unlabled_phase_one_targets = true
       require('leap').add_default_mappings()
+
+      vim.api.nvim_set_hl(0, 'Cursor', { reverse = true })
+
+      vim.api.nvim_create_autocmd(
+        "User",
+        {
+          callback = function()
+            vim.cmd.hi("Cursor", "blend=100")
+            vim.opt.guicursor:append { "a:Cursor/lCursor" }
+          end,
+          pattern = "LeapEnter"
+        }
+      )
+      vim.api.nvim_create_autocmd(
+        "User",
+        {
+          callback = function()
+            vim.cmd.hi("Cursor", "blend=0")
+            vim.opt.guicursor:remove { "a:Cursor/lCursor" }
+          end,
+          pattern = "LeapLeave"
+        }
+      )
+    end
+  },
+  {
+    "ggandor/flit.nvim",
+    config = function()
+      require("flit").setup()
     end
   },
   {
