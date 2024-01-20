@@ -57,40 +57,14 @@ return {
     }
   },
   {
-    "adisen99/apprentice.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-    priority = 1000,
+    "EdenEast/nightfox.nvim",
     config = function()
-      require("lush")(require("apprentice").setup({
-        plugins = {
-          "buftabline",
-          "coc",
-          "cmp", -- nvim-cmp
-          "fzf",
-          "gitgutter",
-          "gitsigns",
-          "lsp",
-          "lspsaga",
-          "nerdtree",
-          "netrw",
-          "nvimtree",
-          "neogit",
-          "packer",
-          "signify",
-          "startify",
-          "syntastic",
-          "telescope",
-          "treesitter"
-        },
-      }))
-    end,
-    init = function()
-      vim.g.apprentice_contrast_dark = "hard"
-      vim.cmd [[colorscheme apprentice]]
-      vim.opt.termguicolors = true
-      -- indent-blankline highlighting
-      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
+      require('nightfox').setup({
+        options = {
+          transparent = true
+        }
+      })
+      vim.cmd("colorscheme carbonfox")
 
       local highlights = {
         IlluminatedWord = { bg = "#636363" },
@@ -193,26 +167,6 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {
-      indent = {
-        highlight = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
-        },
-        char = " "
-      },
-
-      whitespace = {
-        highlight = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
-        },
-        remove_blankline_trail = false
-      },
-      scope = {
-        char = "│"
-      }
-    },
     config = true
   },
   {
