@@ -1,6 +1,5 @@
 return {
   { "tpope/vim-repeat" },
-  { "ryanoasis/vim-devicons" },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -55,29 +54,6 @@ return {
         lualine_x = { 'encoding', 'filetype' },
       },
     }
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    config = function()
-      require('nightfox').setup({
-        options = {
-          transparent = true
-        }
-      })
-      vim.cmd("colorscheme carbonfox")
-
-      local highlights = {
-        IlluminatedWord = { bg = "#636363" },
-        IlluminatedCurWord = { bg = "#636363" },
-        IlluminatedWordText = { bg = "#636363" },
-        IlluminatedWordRead = { bg = "#636363" },
-        IlluminatedWordWrite = { bg = "#636363" },
-      }
-
-      for group, value in pairs(highlights) do
-        vim.api.nvim_set_hl(0, group, value)
-      end
-    end
   },
   { "tpope/vim-fugitive" }, -- git plugin
   { "tpope/vim-surround" }, -- surrounding text with brackets an stuff
@@ -235,5 +211,15 @@ return {
   -- automaticly highlight other uses of the word under the cursor
   {
     "RRethy/vim-illuminate",
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    main = "colorizer",
+    config = true,
+    opts = function()
+      return {
+        "*";
+      }
+    end
   }
 }
