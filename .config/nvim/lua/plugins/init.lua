@@ -134,6 +134,7 @@ return {
         window = {
           winblend = 0,
           show_integration_count = false,
+          zindex = 21 -- to render it above treesitter-context (which has a zindex of 20)
         },
       }
     end,
@@ -215,11 +216,9 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     main = "colorizer",
-    config = true,
-    opts = function()
-      return {
-        "*";
-      }
+    config = function()
+      vim.o.termguicolors = true
+      require "colorizer".setup(nil, { css = true; })
     end
   }
 }

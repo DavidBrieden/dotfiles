@@ -88,7 +88,8 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     config = true,
     opts = {
-      max_lines = 3
+      max_lines = 0,
+      -- separator = "-"
     }
   },
 }

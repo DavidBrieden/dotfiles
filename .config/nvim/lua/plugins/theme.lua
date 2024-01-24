@@ -22,6 +22,13 @@ return {
       for group, value in pairs(highlights) do
         vim.api.nvim_set_hl(0, group, value)
       end
+
+      -- Minimap Background transparent
+      vim.api.nvim_set_hl(0, "MiniMapNormal", { bg = "#FFFFFF" })
+
+      -- Treesitter Context Background transparent
+      vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#636363", bg = "none" })
     end
   },
 
