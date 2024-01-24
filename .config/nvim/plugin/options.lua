@@ -67,9 +67,6 @@ opt.scrolloff = 10
 -- disable wrapping of lines
 opt.wrap = false
 
--- with this pasting code doesnt mess up your lines
-opt.paste = true
-
 -- Changing buffers without saving
 opt.hidden = true
 
