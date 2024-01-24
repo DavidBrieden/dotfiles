@@ -24,7 +24,7 @@ return {
       end
 
       -- Minimap Background transparent
-      vim.api.nvim_set_hl(0, "MiniMapNormal", { bg = "#FFFFFF" })
+      vim.api.nvim_set_hl(0, "MiniMapNormal", { bg = "none" })
 
       -- Treesitter Context Background transparent
       vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
