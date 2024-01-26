@@ -2,6 +2,7 @@ return {
   { "ryanoasis/vim-devicons" },
   {
     "EdenEast/nightfox.nvim",
+    priority = 49, --FIXME setting highlight groups only works if done after all plugins loaded...
     config = function()
       require('nightfox').setup({
         options = {

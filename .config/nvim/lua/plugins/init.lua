@@ -18,14 +18,18 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = false,
     keys = {
-      { "<leader>pb", ":BufferLinePick<cr>" },
-      { "<leader>pD", ":BufferLinePickClose<cr>" },
-      { "<S-C-h>",    ":BufferLineMovePrev<cr>" },
-      { "<S-C-l>",    ":BufferLineMoveNext<cr>" },
+      { "<leader>pb",       ":BufferLinePick<cr>" },
+      { "<leader>pD",       ":BufferLinePickClose<cr>" },
+      { "<S-C-h>",          ":BufferLineMovePrev<cr>" },
+      { "<Leader><C-h>",    ":BufferLineMovePrev<cr>" },
+      { "<S-C-l>",          ":BufferLineMoveNext<cr>" },
+      { "<Leader><C-l>",    ":BufferLineMoveNext<cr>" },
+      { "<C-h>",    ":BufferLineCyclePrev<cr>" },
+      { "<C-l>",    ":BufferLineCycleNext<cr>" },
     },
     opts = {
       options = {
-        separator_style = "slant",
+        -- separator_style = "slant",
         hover = {
           enabled = true,
           delay = 200,
@@ -212,6 +216,11 @@ return {
   -- automaticly highlight other uses of the word under the cursor
   {
     "RRethy/vim-illuminate",
+    config = function()
+      require('illuminate').configure({
+        min_count_to_highlight = 2,
+      })
+    end
   },
   {
     "norcalli/nvim-colorizer.lua",

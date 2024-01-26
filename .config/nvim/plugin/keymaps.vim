@@ -9,7 +9,7 @@ nnoremap <S-L> <C-W><C-L>
 nnoremap <S-H> <C-W><C-H>
 
 " buffer movement
-nnoremap <C-L> :bnext<CR>
-nnoremap <C-J> :bnext<CR>
-nnoremap <C-K> :bprev<CR>
-nnoremap <C-H> :bprev<CR>
+" nnoremap <C-L> :bnext<CR>
+" nnoremap <C-J> :bnext<CR>
+" nnoremap <C-K> :bprev<CR>
+" nnoremap <C-H> :bprev<CR>
