@@ -185,6 +185,13 @@ return {
         -- ["rust_analyzer"] = function ()
         -- require("rust-tools").setup {}
         -- end
+        ['eslint'] = function()
+          require("lspconfig")["eslint"].setup({
+            on_attach = function(client, bufnr)
+              client.server_capabilities.documentFormattingProvider = true
+            end
+          })
+        end
       }
     end
   },
@@ -192,24 +199,5 @@ return {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
-  },
-  {
-    'nvimtools/none-ls.nvim',
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    },
-    config = function()
-      local null_ls = require("null-ls")
-
-      -- register any number of sources simultaneously
-      local sources = {
-        require("none-ls.diagnostics.eslint"),
-        require("none-ls.formatting.eslint"),
-        require("none-ls.code_actions.eslint"),
-      }
-
-      null_ls.setup({ sources = sources })
-    end
   }
-
 }
