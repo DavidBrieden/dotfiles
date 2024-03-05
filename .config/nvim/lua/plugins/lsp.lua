@@ -7,7 +7,7 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
-    config = function() 
+    config = function()
       -- require'lspconfig'.pyright.setup{}
 
 
@@ -123,8 +123,8 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-            -- they way you will only jump inside the snippet region
+              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+              -- they way you will only jump inside the snippet region
             elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -177,21 +177,21 @@ return {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {}
+        function(server_name)  -- default handler (optional)
+          require("lspconfig")[server_name].setup {}
         end,
         -- Next, you can provide a dedicated handler for specific servers.
         -- For example, a handler override for the `rust_analyzer`:
         -- ["rust_analyzer"] = function ()
-            -- require("rust-tools").setup {}
+        -- require("rust-tools").setup {}
         -- end
-    }
+      }
     end
   },
   {
-      'windwp/nvim-autopairs',
-      event = "InsertEnter",
-      opts = {} -- this is equalent to setup({}) function
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}   -- this is equalent to setup({}) function
   }
-  
+
 }

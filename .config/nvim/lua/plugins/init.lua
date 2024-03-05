@@ -18,14 +18,14 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = false,
     keys = {
-      { "<leader>pb",       ":BufferLinePick<cr>" },
-      { "<leader>pD",       ":BufferLinePickClose<cr>" },
-      { "<S-C-h>",          ":BufferLineMovePrev<cr>" },
-      { "<Leader><C-h>",    ":BufferLineMovePrev<cr>" },
-      { "<S-C-l>",          ":BufferLineMoveNext<cr>" },
-      { "<Leader><C-l>",    ":BufferLineMoveNext<cr>" },
-      { "<C-h>",    ":BufferLineCyclePrev<cr>" },
-      { "<C-l>",    ":BufferLineCycleNext<cr>" },
+      { "<leader>pb",    ":BufferLinePick<cr>" },
+      { "<leader>pD",    ":BufferLinePickClose<cr>" },
+      { "<S-C-h>",       ":BufferLineMovePrev<cr>" },
+      { "<Leader><C-h>", ":BufferLineMovePrev<cr>" },
+      { "<S-C-l>",       ":BufferLineMoveNext<cr>" },
+      { "<Leader><C-l>", ":BufferLineMoveNext<cr>" },
+      { "<C-h>",         ":BufferLineCyclePrev<cr>" },
+      { "<C-l>",         ":BufferLineCycleNext<cr>" },
     },
     opts = {
       options = {
@@ -47,7 +47,13 @@ return {
     },
     config = true,
   },
-  { "vim-scripts/ClosePairs" }, -- automaticly insert closing brackets
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
@@ -227,7 +233,7 @@ return {
     main = "colorizer",
     config = function()
       vim.o.termguicolors = true
-      require "colorizer".setup(nil, { css = true; })
+      require "colorizer".setup(nil, { css = true, })
     end
   }
 }
