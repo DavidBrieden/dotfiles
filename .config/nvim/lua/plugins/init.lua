@@ -121,7 +121,20 @@ return {
     },
     lazy = false,
   },
-  { "mhinz/vim-startify" },
+  -- { "mhinz/vim-startify" },
+  {
+    "startup-nvim/startup.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require "startup".setup({ theme = "daves_startup_theme" })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "startup" },
+        callback = function()
+          vim.opt_local.colorcolumn = ""
+        end
+      })
+    end
+  },
   { "qpkorr/vim-bufkill" },
   {
     "echasnovski/mini.map",

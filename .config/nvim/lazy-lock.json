@@ -1,5 +1,4 @@
 {
-  "ClosePairs": { "branch": "master", "commit": "38b55cdf13a51fbf346f8d24f6441a60b6d17d9f" },
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
   "bufferline.nvim": { "branch": "main", "commit": "d6cb9b7cac52887bcac65f8698e67479553c0748" },
@@ -34,6 +33,7 @@
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "95933e762e28f9d38b572d65e7e4da9d2f4d90cb" },
   "nvim-web-devicons": { "branch": "master", "commit": "0bb67ef952ea3eb7b1bac9c011281471d99a27bc" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
+  "startup.nvim": { "branch": "master", "commit": "c6ba324f9eba0c23b675b53af431346aab893268" },
   "tagbar": { "branch": "master", "commit": "12edcb59449b335555652898f82dd6d5c59d519a" },
   "telescope-emoji.nvim": { "branch": "master", "commit": "86248d97be84a1ce83f0541500ef9edc99ea2aa1" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "731a046da7dd3adff9de871a42f9b7fb85f60f47" },
@@ -44,7 +44,6 @@
   "vim-fugitive": { "branch": "master", "commit": "2e88f14a585c014691904ba8fe39e6ea851c9422" },
   "vim-illuminate": { "branch": "master", "commit": "305bf07b919ac526deb5193280379e2f8b599926" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vim-startify": { "branch": "master", "commit": "4e089dffdad46f3f5593f34362d530e8fe823dcf" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
