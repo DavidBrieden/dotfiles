@@ -177,7 +177,7 @@ return {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
-        function(server_name)  -- default handler (optional)
+        function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {}
         end,
         -- Next, you can provide a dedicated handler for specific servers.
@@ -191,7 +191,25 @@ return {
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    opts = {}   -- this is equalent to setup({}) function
+    opts = {} -- this is equalent to setup({}) function
+  },
+  {
+    'nvimtools/none-ls.nvim',
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
+    config = function()
+      local null_ls = require("null-ls")
+
+      -- register any number of sources simultaneously
+      local sources = {
+        require("none-ls.diagnostics.eslint"),
+        require("none-ls.formatting.eslint"),
+        require("none-ls.code_actions.eslint"),
+      }
+
+      null_ls.setup({ sources = sources })
+    end
   }
 
 }

@@ -248,5 +248,6 @@ return {
       vim.o.termguicolors = true
       require "colorizer".setup(nil, { css = true, })
     end
-  }
+  },
+  { "folke/neodev.nvim", opts = {} }
 }
