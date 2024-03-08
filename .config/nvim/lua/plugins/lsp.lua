@@ -191,6 +191,15 @@ return {
               client.server_capabilities.documentFormattingProvider = true
             end
           })
+        end,
+        ["tsserver"] = function()
+          require('lspconfig').tsserver.setup({
+            init_options = {
+              preferences = {
+                disableSuggestions = true,
+              },
+            },
+          })
         end
       }
     end
