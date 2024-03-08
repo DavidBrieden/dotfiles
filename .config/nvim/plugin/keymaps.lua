@@ -31,3 +31,6 @@ keymap("i", "<C-l>", "<Right>", default_opts("move right"))
 -- indentation
 keymap("v", "<", "<gv", default_opts("indent left"))
 keymap("v", ">", ">gv", default_opts("indent right"))
+
+-- buffer delete
+keymap("n", "<leader>q", ":BD<cr>", default_opts("Buffer Delete"))
