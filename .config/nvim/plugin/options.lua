@@ -84,3 +84,6 @@ opt.splitright = true
 
 -- make column for git and stuff up to 3 signs wide
 opt.signcolumn = 'auto:3'
+
+-- opens new files with opened folds
+opt.foldlevel = 20
