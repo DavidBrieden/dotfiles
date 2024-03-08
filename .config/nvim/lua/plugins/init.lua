@@ -140,9 +140,10 @@ return {
     "echasnovski/mini.map",
     main = "mini.map",
     lazy = false,
-    keys = {
-      { "<Leader>mm", "<cmd>lua MiniMap.toggle()<CR>", desc = "toggle Minimap" },
-    },
+    init = function ()
+      local minimap = require("mini.map")
+      vim.api.nvim_create_user_command("MiniMap", minimap.toggle, {})
+    end,
     opts = function()
       local minimap = require("mini.map")
       return {
@@ -211,7 +212,13 @@ return {
   },
   {
     'chentoast/marks.nvim',
-    config = true
+    opts = {
+      force_write_shada = true,
+      mappings = {
+        next = "<Leader>m",
+        prev = "<Leader>M"
+      }
+    }
   },
   {
     'Shatur/neovim-session-manager',
