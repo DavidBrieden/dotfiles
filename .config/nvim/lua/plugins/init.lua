@@ -103,7 +103,7 @@ return {
     end
   },
   {
-    "ggandor/flit.nvim",
+    "ggandor/flit.nvim", -- enhanced leap motions
     config = function()
       require("flit").setup()
     end
@@ -121,7 +121,6 @@ return {
     },
     lazy = false,
   },
-  -- { "mhinz/vim-startify" },
   {
     "startup-nvim/startup.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
@@ -140,7 +139,7 @@ return {
     "echasnovski/mini.map",
     main = "mini.map",
     lazy = false,
-    init = function ()
+    init = function()
       local minimap = require("mini.map")
       vim.api.nvim_create_user_command("MiniMap", minimap.toggle, {})
     end,
@@ -256,5 +255,22 @@ return {
       require "colorizer".setup(nil, { css = true, })
     end
   },
-  { "folke/neodev.nvim", opts = {} }
+  { "folke/neodev.nvim", opts = {} },
+  {
+    "gbprod/substitute.nvim",
+    opts = {
+    },
+    config = function()
+      require("substitute").setup()
+
+      vim.keymap.set("n", "s", require('substitute').operator, { noremap = true })
+      vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
+      vim.keymap.set("n", "S", require('substitute').eol, { noremap = true })
+      vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })
+      vim.keymap.set("n", "sx", require('substitute.exchange').operator, { noremap = true })
+      vim.keymap.set("n", "sxx", require('substitute.exchange').line, { noremap = true })
+      vim.keymap.set("x", "X", require('substitute.exchange').visual, { noremap = true })
+      vim.keymap.set("n", "sxc", require('substitute.exchange').cancel, { noremap = true })
+    end
+  }
 }

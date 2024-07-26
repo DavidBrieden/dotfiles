@@ -1,12 +1,14 @@
 # Movement
 * HJKL
-* Shift + HJKL: Hiermit können  die Fenster (bzw Splits) gewechselt werden
-* Strg  + HJKL: Hiermit können die Buffer gewechselt werden
+* Shift + HJKL: changes windows (or splits)
+* Strg  + HJKL: changes buffers
 * 10gg -> jumps to line 10
 * 10G -> jumps to line 10
 
 # Buffers
 * :BD -> closes file without closing the split. see bufkill.vim
+*     -> alternative: Space + q
+* Space + Strg + HL: moves buffers
 
 # NEOTREE
 * most keymaps only works in NerdTree Panel (F9)
@@ -24,6 +26,12 @@
 # Substitution
 * \:s/foo/bar -> replaces foo with bar
 * & -> repeats last substitution
+* s + motion -> substitute
+* ss -> substitute whole line
+* S -> substitute till EOL
+* sx + motion -> exchange
+* sxx -> exchange whole line
+* X -> exchange till EOL
 
 # Telescope
 * Space + ff -> Find Files
@@ -41,6 +49,14 @@ all folding maps start with z. With some fantasy, this looks like a folded piece
 * zr -> R-educe, open all foldings one level
 * zm -> M-ore, closes all foldings one level
 * Space + Space -> Toggles current fold
+
+# Marks
+ * m, -> creates a new mark in alphabetically order
+ * m; -> toggles a mark in alphabetically order
+ * mx -> creates mark x
+ * dmx -> deletes mark x
+ * Space + m -> jump to next mark
+ * Space + M -> jump to previous mark
 
 # LSP
 * [g or ]g -> next or prev diagnostic
