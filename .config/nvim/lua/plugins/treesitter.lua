@@ -15,7 +15,7 @@ return {
             node_incremental = '<CR>',
             node_decremental = '<S-CR>',
             scope_incremental = '<TAB>',
-            scope_decremental = '<S-TAB>',
+            -- scope_decremental = '<S-TAB>', --TODO: Why doesnt this work??? kill me please
           },
         },
         textobjects = {
@@ -82,6 +82,9 @@ return {
 
       -- vim.keymap.set({ "n", "x", "o" }, "]h", next_hunk_repeat)
       -- vim.keymap.set({ "n", "x", "o" }, "[h", prev_hunk_repeat)
+
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end
   },
   {

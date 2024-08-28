@@ -32,5 +32,6 @@ install_symlink () {
 install_symlink ".gitconfig"
 install_symlink ".vimrc"
 install_symlink ".zshrc"
+install_symlink ".config/nvim"
 
 
