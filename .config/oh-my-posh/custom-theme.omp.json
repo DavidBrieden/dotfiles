@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "shell_integration": true,
+  "patch_pwsh_bleed": true,
+  "console_title_template": "{{.PWD}}",
+  "palette": {
+    "structure": "#C8A5FF",
+    "braces": "#8CB6FF",
+    "path": "#25BE6A",
+    "time": "#F9F1A5",
+    "git": "#3761D6",
+    "node": "#6CC24A"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:structure",
+          "template": "┌─"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "template": "<p:braces>(</><p:path>{{.Path}}</><p:braces>)</>",
+          "properties": {
+            "style": "letter"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "template": "<p:braces>(</><p:git>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}</><p:braces>)</>",
+          "properties": {
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "template": "<p:braces>(</><p:node>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</><p:braces>)</>",
+          "properties": {
+            "fetch_version": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "filler": "<p:structure>─</>",
+      "segments": [
+        {
+          "type": "time",
+          "style": "plain",
+          "template": "<p:braces>(</><p:time>{{ .CurrentDate | date .Format }}</><p:braces>)</>",
+          "properties": {
+            "time_format": "Mon 2 Jan 15:04:05"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:structure",
+          "template": "─┐"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:structure",
+          "template": "└─>"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#e91e63",
+          "template": ":( {{.String}} ",
+          "properties": {}
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "template": "{{if .Ms}}<p:braces>(</>{{ .FormattedMs }}<p:braces>)</>{{end}}",
+          "properties": {
+            "always_enabled": true,
+            "threshold": 0,
+            "style": "roundrock"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:structure",
+          "template": "─┘"
+        }
+      ]
+    }
+  ]
+}
