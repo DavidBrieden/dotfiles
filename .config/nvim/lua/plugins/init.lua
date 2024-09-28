@@ -136,31 +136,12 @@ return {
   },
   { "qpkorr/vim-bufkill" },
   {
-    "echasnovski/mini.map",
-    main = "mini.map",
-    lazy = false,
+    "Isrothy/neominimap.nvim",
     init = function()
-      local minimap = require("mini.map")
-      vim.api.nvim_create_user_command("MiniMap", minimap.toggle, {})
-    end,
-    opts = function()
-      local minimap = require("mini.map")
-      return {
-        symbols = {
-          encode = require("mini.map").gen_encode_symbols.dot("4x2"),
-        },
-        integrations = {
-          minimap.gen_integration.diagnostic(),
-          minimap.gen_integration.builtin_search(),
-          minimap.gen_integration.gitsigns(),
-        },
-        window = {
-          winblend = 0,
-          show_integration_count = false,
-          zindex = 21 -- to render it above treesitter-context (which has a zindex of 20)
-        },
-      }
-    end,
+
+      vim.opt.wrap = false
+      vim.opt.sidescrolloff = 36
+    end
   },
   -- file finder
   { "nvim-lua/plenary.nvim" }, -- dependency of telescope
@@ -233,7 +214,7 @@ return {
         -- group = config_group,
         callback = function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-          require("mini.map").open()
+          -- require("mini.map").open()
         end,
       })
     end
