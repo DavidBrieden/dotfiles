@@ -10,7 +10,9 @@ function default_opts(desc)
 end
 
 -- editing vimrc and stuff
-wk.register({["<leader>e"] = {name = "+Open some important files"}})
+-- wk.register(
+--   { "<leader>e", group = "Open some important files" }
+-- )
 keymap("n", "<leader>ec", ":split ~/dotfiles/cheatsheet.md<cr>", default_opts("Open Cheatsheet"))
 keymap("n", "<leader>ev", ":split $MYVIMRC<cr>", default_opts("Open vimrc"))
 

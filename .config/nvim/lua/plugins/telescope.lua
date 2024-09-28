@@ -24,6 +24,9 @@ return {
       local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
       telescope.setup {
+        defaults = {
+          path_display = { "smart" }
+        },
         pickers = {
           buffers = {
             mappings = {
@@ -52,7 +55,9 @@ return {
       require("telescope").load_extension("ui-select")
       require("telescope").load_extension("emoji")
 
-      wk.register({ ["<leader>f"] = { name = "+Telescope" } })
+      -- wk.register({
+      --   { "<leader>f", group = "Telescope" },
+      -- })
       keymap_set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
       keymap_set("n", "<leader>fg", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
       keymap_set('n', '<leader>fb', builtin.buffers, { desc = "Find Buffers" })
