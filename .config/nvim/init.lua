@@ -19,3 +19,5 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins")
+-- vim.cmd([[colorscheme monokai-pro]])
+vim.cmd.colorscheme('everforest')

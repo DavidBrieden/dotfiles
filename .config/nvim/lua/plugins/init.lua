@@ -138,7 +138,6 @@ return {
   {
     "Isrothy/neominimap.nvim",
     init = function()
-
       vim.opt.wrap = false
       vim.opt.sidescrolloff = 36
     end
@@ -147,8 +146,9 @@ return {
   { "nvim-lua/plenary.nvim" }, -- dependency of telescope
   {
     "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    config = true
+    config = function()
+      require("ibl").setup()
+    end
   },
   {
     "L3MON4D3/LuaSnip",
