@@ -214,7 +214,6 @@ return {
         -- group = config_group,
         callback = function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-          -- require("mini.map").open()
         end,
       })
     end

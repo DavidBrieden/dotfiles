@@ -22,6 +22,12 @@ return {
         "buffers",
         "git_status",
       },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = true,
+        },
+      },
       source_selector = {
         winbar = true, -- toggle to show selector on winbar
         statusline = false,
@@ -30,7 +36,7 @@ return {
         show_separator_on_edge = true,
         sources = {
           { source = "filesystem", display_name = "F" },
-          { source = "buffers", display_name = "B" },
+          { source = "buffers",    display_name = "B" },
           { source = "git_status", display_name = "G" },
         },
       },
@@ -43,7 +49,7 @@ return {
           ['<tab>'] = "toggle_node"
         },
       },
-     commands = {
+      commands = {
         system_open = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
@@ -53,7 +59,7 @@ return {
       },
     },
     init = function()
-        vim.g.neo_tree_remove_legacy_commands = 1
+      vim.g.neo_tree_remove_legacy_commands = 1
     end
   },
 }

@@ -25,9 +25,12 @@ return {
 
       telescope.setup {
         defaults = {
-          path_display = { "smart" }
+          path_display = { "smart" },
         },
         pickers = {
+          find_files = {
+            hidden = true,
+          },
           buffers = {
             mappings = {
               n = {
