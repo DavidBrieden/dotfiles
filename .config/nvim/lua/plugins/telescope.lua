@@ -62,6 +62,8 @@ return {
       --   { "<leader>f", group = "Telescope" },
       -- })
       keymap_set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
+      keymap_set('n', '<leader>fD', builtin.diagnostics, { desc = "Find Diagnostics in all buffers" })
+      keymap_set('n', '<leader>fd', function() builtin.diagnostics({ bufnr = 0 }) end, { desc = "Find Diagnostics" })
       keymap_set("n", "<leader>fg", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
       keymap_set('n', '<leader>fb', builtin.buffers, { desc = "Find Buffers" })
       keymap_set('n', '<leader>fh', builtin.help_tags, { desc = "Find Help Tags" })
