@@ -70,6 +70,7 @@ return {
       keymap_set('n', '<leader>fn', find_nvim, { desc = "Find Nvim Config Files" })
       keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, { desc = "Select Emoji" })
       keymap_set('n', '<leader>fs', require("session_manager").load_session, { desc = "Select Session" })
+      keymap_set('n', '<leader>fm', function() require('telescope').extensions.macroni.saved_macros() end, { desc = "Execute Makro" })
 
       keymap_set("n", "<leader>g",
         function() live_grep_args_shortcuts.grep_word_under_cursor({ postfix = "", quote = false }) end,

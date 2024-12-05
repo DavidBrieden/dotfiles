@@ -252,5 +252,16 @@ return {
       vim.keymap.set("x", "X", require('substitute.exchange').visual, { noremap = true })
       vim.keymap.set("n", "sxc", require('substitute.exchange').cancel, { noremap = true })
     end
+  },
+  {
+    'jesseleite/nvim-macroni',
+    opts = {
+      macros = {
+        pwsh_new_tab = {
+          desc = "Open a new Powershell Tab",
+          macro = ":!wt -w 0 nt -d .<ESC>"
+        }
+      }
+    },
   }
 }
