@@ -33,5 +33,6 @@ install_symlink ".gitconfig"
 install_symlink ".vimrc"
 install_symlink ".zshrc"
 install_symlink ".config/nvim"
+install_symlink ".config/hypr"
 
 

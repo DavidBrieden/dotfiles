@@ -21,3 +21,4 @@ antigen apply
 
 alias cls=clear
 alias n=nvim
+alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
