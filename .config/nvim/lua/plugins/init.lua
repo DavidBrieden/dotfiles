@@ -138,7 +138,6 @@ return {
   {
     "Isrothy/neominimap.nvim",
     init = function()
-
       vim.opt.wrap = false
       vim.opt.sidescrolloff = 36
     end
@@ -147,8 +146,9 @@ return {
   { "nvim-lua/plenary.nvim" }, -- dependency of telescope
   {
     "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    config = true
+    config = function()
+      require("ibl").setup()
+    end
   },
   {
     "L3MON4D3/LuaSnip",
@@ -157,12 +157,12 @@ return {
       local ls = require("luasnip")
       -- some shorthands...
       local snip = ls.snippet
-      local node = ls.snippet_node
-      local text = ls.text_node
-      local insert = ls.insert_node
+      -- local node = ls.snippet_node
+      -- local text = ls.text_node
+      -- local insert = ls.insert_node
       local func = ls.function_node
-      local choice = ls.choice_node
-      local dynamicn = ls.dynamic_node
+      -- local choice = ls.choice_node
+      -- local dynamicn = ls.dynamic_node
 
       local date = function() return { os.date('%Y-%m-%d') } end
 
@@ -214,7 +214,6 @@ return {
         -- group = config_group,
         callback = function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-          -- require("mini.map").open()
         end,
       })
     end
@@ -253,5 +252,16 @@ return {
       vim.keymap.set("x", "X", require('substitute.exchange').visual, { noremap = true })
       vim.keymap.set("n", "sxc", require('substitute.exchange').cancel, { noremap = true })
     end
+  },
+  {
+    'jesseleite/nvim-macroni',
+    opts = {
+      macros = {
+        pwsh_new_tab = {
+          desc = "Open a new Powershell Tab",
+          macro = ":!wt -w 0 nt -d .<ESC>"
+        }
+      }
+    },
   }
 }

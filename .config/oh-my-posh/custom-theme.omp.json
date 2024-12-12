@@ -29,7 +29,7 @@
           "style": "plain",
           "template": "<p:braces>(</><p:path>{{.Path}}</><p:braces>)</>",
           "properties": {
-            "style": "letter"
+            "style": "agnoster_full"
           }
         },
         {

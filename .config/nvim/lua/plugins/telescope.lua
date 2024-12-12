@@ -25,9 +25,12 @@ return {
 
       telescope.setup {
         defaults = {
-          path_display = { "smart" }
+          path_display = { "smart" },
         },
         pickers = {
+          find_files = {
+            hidden = true,
+          },
           buffers = {
             mappings = {
               n = {
@@ -59,12 +62,15 @@ return {
       --   { "<leader>f", group = "Telescope" },
       -- })
       keymap_set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
+      keymap_set('n', '<leader>fD', builtin.diagnostics, { desc = "Find Diagnostics in all buffers" })
+      keymap_set('n', '<leader>fd', function() builtin.diagnostics({ bufnr = 0 }) end, { desc = "Find Diagnostics" })
       keymap_set("n", "<leader>fg", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
       keymap_set('n', '<leader>fb', builtin.buffers, { desc = "Find Buffers" })
       keymap_set('n', '<leader>fh', builtin.help_tags, { desc = "Find Help Tags" })
       keymap_set('n', '<leader>fn', find_nvim, { desc = "Find Nvim Config Files" })
       keymap_set('n', '<leader>fe', require("telescope").extensions.emoji.emoji, { desc = "Select Emoji" })
       keymap_set('n', '<leader>fs', require("session_manager").load_session, { desc = "Select Session" })
+      keymap_set('n', '<leader>fm', function() require('telescope').extensions.macroni.saved_macros() end, { desc = "Execute Makro" })
 
       keymap_set("n", "<leader>g",
         function() live_grep_args_shortcuts.grep_word_under_cursor({ postfix = "", quote = false }) end,
