@@ -29,6 +29,8 @@ return {
               ["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
               ["ip"] = { query = "@parameter.inner", desc = "Select inner part of a parameter region" },
               ["ap"] = { query = "@parameter.outer", desc = "Select outer part of a parameter region" },
+              ["ia"] = { query = "@attribute.inner", desc = "Select inner part of a attribute" },
+              ["aa"] = { query = "@attribute.outer", desc = "Select outer part of a attribute" },
             }
           },
           move = {

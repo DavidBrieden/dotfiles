@@ -76,8 +76,10 @@ return {
     'ggandor/leap.nvim',
     config = function()
       require("leap").opts.highlight_unlabled_phase_one_targets = true
-      require('leap').add_default_mappings()
-
+      -- require('leap').add_default_mappings()
+      vim.keymap.set({ 'n', 'x', 'o' }, '<leader>s', '<Plug>(leap-forward)')
+      vim.keymap.set({ 'n', 'x', 'o' }, '<leader>S', '<Plug>(leap-backward)')
+      vim.keymap.set({ 'n', 'x', 'o' }, '<leader>gs', '<Plug>(leap-from-window)')
       vim.api.nvim_set_hl(0, 'Cursor', { reverse = true })
 
       vim.api.nvim_create_autocmd(
