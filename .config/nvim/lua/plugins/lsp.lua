@@ -7,6 +7,21 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+        -- used for completion, annotations and signatures of Neovim apis
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "luvit-meta/library",      words = { "vim%.uv" } },
+            { path = "/usr/share/awesome/lib/", words = { "awesome" } },
+          },
+        },
+      },
+    },
     config = function()
       -- require'lspconfig'.pyright.setup{}
 
@@ -206,7 +221,7 @@ return {
             on_init = function(client)
               if client.workspace_folders then
                 local path = client.workspace_folders[1].name
-                if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+                if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
                   return
                 end
               end
