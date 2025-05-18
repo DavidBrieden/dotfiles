@@ -215,7 +215,7 @@ return {
         pattern = "SessionLoadPost",
         -- group = config_group,
         callback = function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+          require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
         end,
       })
     end
