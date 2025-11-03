@@ -139,9 +139,22 @@ return {
   { "qpkorr/vim-bufkill" },
   {
     "Isrothy/neominimap.nvim",
+    version = "v3.x.x",
+    lazy = false,
     init = function()
       vim.opt.wrap = false
       vim.opt.sidescrolloff = 36
+
+      vim.g.neominimap = {
+        auto_enable = true,
+        -- TODO: this is just for 1.12. see https://github.com/Isrothy/neominimap.nvim/issues/266
+        float = {
+            window_border = "single",
+        },
+        git = {
+            mode = "line"
+        }
+      }
     end
   },
   -- file finder
