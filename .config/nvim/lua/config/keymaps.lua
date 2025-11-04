@@ -5,7 +5,7 @@ local wk = require("which-key")
 function default_opts(desc)
   return {
     noremap = true,
-    desc = desc
+    desc = desc,
   }
 end
 
@@ -43,7 +43,10 @@ keymap("v", ">", ">gv", default_opts("indent right"))
 -- buffer delete
 keymap("n", "<leader>q", ":BD<cr>", default_opts("Buffer Delete"))
 
-
-
 -- Add new line above in Insert Mode
 keymap("i", "<M-CR>", "<ESC>O", default_opts("Add Line Above"))
+
+-- show documentation for what is under cursor
+vim.keymap.set("n", "<leader>F", function()
+  require("conform").format()
+end, default_opts("Format Code"))
