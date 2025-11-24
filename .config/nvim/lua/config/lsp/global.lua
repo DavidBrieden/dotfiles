@@ -44,11 +44,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- jump to previous diagnostic in buffer
     opts.desc = "Go to previous diagnostic"
-    keymap.set("n", "[d", function() vim.diagnostic.jump({count=1, float=true}) end, opts)
+    keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
 
     -- jump to next diagnostic in buffer
     opts.desc = "Go to next diagnostic"
-    keymap.set("n", "]d", function() vim.diagnostic.jump({count=-1, float=true}) end, opts)
+    keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 
     -- show documentation for what is under cursor
     opts.desc = "Show documentation for what is under cursor"

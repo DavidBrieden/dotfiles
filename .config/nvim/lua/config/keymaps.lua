@@ -1,8 +1,6 @@
 local keymap = vim.api.nvim_set_keymap
-local default_opts = { noremap = true, silent = true }
-local wk = require("which-key")
 
-function default_opts(desc)
+local function default_opts(desc)
   return {
     noremap = true,
     desc = desc,

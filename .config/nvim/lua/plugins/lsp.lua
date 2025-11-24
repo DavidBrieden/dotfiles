@@ -30,9 +30,9 @@ return {
       -- list of formatter and linter for mason to install
       ensure_installed = {
         "stylua", -- lua formatter
-        "black", -- python formatter
+        "black",  -- python formatter
         "pylint", -- python linter
-        "shfmt", -- sh formatter with bash support
+        "shfmt",  -- sh formatter with bash support
       },
     },
   },
@@ -40,13 +40,22 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     opts = {
-
+      completion = {
+        trigger = {
+          show_on_insert = true,
+        },
+        list = {
+          selection = {
+            preselect = false,
+          },
+        },
+      },
       keymap = {
         preset = "enter",
-        ["<S-Tab>"] = { "select_prev", "fallback" },
-        ["<S-j>"] = { "select_prev", "fallback" },
+        ["S-Tab>"] = { "select_prev", "fallback" },
+        -- ["<S-j>"] = { "select_prev", "fallback" },
         ["<Tab>"] = { "select_next", "fallback" },
-        ["<S-k>"] = { "select_next", "fallback" },
+        -- ["<S-k>"] = { "select_next", "fallback" },
       },
     },
   },
@@ -55,7 +64,10 @@ return {
     opts = {
       formatters_by_ft = {
         python = { "black" },
-        lua = { "stylua" },
+        -- lua = { "stylua" }, -- TODO: does this work? the last time I checked it didn't
+      },
+      default_format_opts = {
+        lsp_format = "fallback",
       },
     },
   },
