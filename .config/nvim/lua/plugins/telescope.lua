@@ -49,6 +49,7 @@ return {
             mappings = {         -- extend mappings
               i = {
                 ["<C-k>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                ["<C-h>"] = lga_actions.quote_prompt({ postfix = " --hidden " }),
               },
             },
           }
