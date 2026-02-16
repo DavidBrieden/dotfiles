@@ -1,0 +1,1 @@
+- set base path for lsp/js
