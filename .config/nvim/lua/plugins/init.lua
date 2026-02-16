@@ -72,7 +72,7 @@ return {
     config = true,
   },
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     config = function()
       require("leap").opts.highlight_unlabled_phase_one_targets = true
       -- require('leap').add_default_mappings()
