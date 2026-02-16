@@ -2,7 +2,7 @@ require("config.options")
 require("config.lazy")
 require("config.keymaps")
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("gruvbox")
 
 -- Load all LSP's in "lua/config/lsp"
 local lsp_path = vim.fn.stdpath("config") .. "/lua/config/lsp"

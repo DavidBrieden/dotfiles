@@ -4,10 +4,10 @@ return {
     "EdenEast/nightfox.nvim",
     priority = 49, --FIXME setting highlight groups only works if done after all plugins loaded...
     config = function()
-      require('nightfox').setup({
+      require("nightfox").setup({
         options = {
-          transparent = true
-        }
+          transparent = true,
+        },
       })
 
       vim.api.nvim_create_autocmd("ColorScheme", {
@@ -32,12 +32,12 @@ return {
           -- Treesitter Context Background transparent
           vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
           vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#636363", bg = "none" })
-        end
+        end,
       })
-    end
+    end,
   },
   {
-    'sainnhe/everforest',
+    "sainnhe/everforest",
     lazy = false,
     priority = 10000,
     config = function()
@@ -53,9 +53,16 @@ return {
           -- Treesitter Context Background transparent
           vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
           vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#636363", bg = "none" })
-        end
+        end,
       })
-    end
-  }
-
+    end,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      transparent_mode = true,
+    },
+  },
 }
