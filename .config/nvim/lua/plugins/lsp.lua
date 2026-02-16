@@ -30,9 +30,9 @@ return {
       -- list of formatter and linter for mason to install
       ensure_installed = {
         "stylua", -- lua formatter
-        "black",  -- python formatter
+        "black", -- python formatter
         "pylint", -- python linter
-        "shfmt",  -- sh formatter with bash support
+        "shfmt", -- sh formatter with bash support
       },
     },
   },
@@ -64,7 +64,7 @@ return {
     opts = {
       formatters_by_ft = {
         python = { "black" },
-        -- lua = { "stylua" }, -- TODO: does this work? the last time I checked it didn't
+        lua = { "stylua" }
       },
       default_format_opts = {
         lsp_format = "fallback",
