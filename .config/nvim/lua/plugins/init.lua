@@ -262,7 +262,7 @@ return {
     end,
   },
   {
-    "jesseleite/nvim-macroni",
+    "jesseleite/macroni.nvim",
     opts = {
       macros = {
         pwsh_new_tab = {
