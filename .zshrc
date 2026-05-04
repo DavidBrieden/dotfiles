@@ -19,6 +19,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Apply changes
 antigen apply
 
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
 alias cls=clear
 alias n=nvim
 alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
