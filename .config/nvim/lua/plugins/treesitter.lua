@@ -85,8 +85,8 @@ return {
       -- vim.keymap.set({ "n", "x", "o" }, "]h", next_hunk_repeat)
       -- vim.keymap.set({ "n", "x", "o" }, "[h", prev_hunk_repeat)
 
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      -- vim.opt.foldmethod = "indent"
+      -- vim.opt.foldexpr = "vim.treesitter.foldexpr()"
     end
   },
   {

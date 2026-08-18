@@ -50,6 +50,10 @@ all folding maps start with z. With some fantasy, this looks like a folded piece
 * zm -> M-ore, closes all foldings one level
 * Space + Space -> Toggles current fold
 
+## nvim-origami
+nvim-origami adds some very nice default keymaps. It overrides h,l, ^ and $. They work like before, plus opening and
+closing folds automatically.
+
 # Marks
  * m, -> creates a new mark in alphabetically order
  * m; -> toggles a mark in alphabetically order

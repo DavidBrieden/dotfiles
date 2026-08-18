@@ -267,9 +267,20 @@ return {
       macros = {
         pwsh_new_tab = {
           desc = "Open a new Powershell Tab",
-          macro = ":!wt -w 0 nt -d .<ESC>",
+          macro = ":!wt.exe -w 0 nt -d .<ESC>",
         },
       },
     },
+  },
+  {
+    "chrisgrieser/nvim-origami",
+    event = "VeryLazy",
+    opts = {}, -- required even when using default config
+
+    -- recommended: disable vim's auto-folding
+    init = function()
+      vim.opt.foldlevel = 99
+      vim.opt.foldlevelstart = 99
+    end,
   },
 }
