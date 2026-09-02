@@ -18,14 +18,14 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     lazy = false,
     keys = {
-      { "<leader>pb", ":BufferLinePick<cr>" },
-      { "<leader>pD", ":BufferLinePickClose<cr>" },
-      { "<S-C-h>", ":BufferLineMovePrev<cr>" },
+      { "<leader>pb",    ":BufferLinePick<cr>" },
+      { "<leader>pD",    ":BufferLinePickClose<cr>" },
+      { "<S-C-h>",       ":BufferLineMovePrev<cr>" },
       { "<Leader><C-h>", ":BufferLineMovePrev<cr>" },
-      { "<S-C-l>", ":BufferLineMoveNext<cr>" },
+      { "<S-C-l>",       ":BufferLineMoveNext<cr>" },
       { "<Leader><C-l>", ":BufferLineMoveNext<cr>" },
-      { "<C-h>", ":BufferLineCyclePrev<cr>" },
-      { "<C-l>", ":BufferLineCycleNext<cr>" },
+      { "<C-h>",         ":BufferLineCyclePrev<cr>" },
+      { "<C-l>",         ":BufferLineCycleNext<cr>" },
     },
     opts = {
       options = {
@@ -134,6 +134,10 @@ return {
     "Isrothy/neominimap.nvim",
     version = "v3.x.x",
     lazy = false,
+    keys = {
+      -- Global Minimap Controls
+      { "<F7>", "<cmd>Neominimap Toggle<cr>", desc = "Toggle global minimap" },
+    },
     init = function()
       vim.opt.wrap = false
       vim.opt.sidescrolloff = 36
