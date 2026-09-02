@@ -30,3 +30,4 @@ alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | 
 
 export PATH=$PATH:~/.local/bin
 
+eval "$(zoxide init zsh)"
