@@ -51,7 +51,8 @@ all folding maps start with z. With some fantasy, this looks like a folded piece
 * Space + Space -> Toggles current fold
 
 ## nvim-origami
-nvim-origami adds some very nice default keymaps. It overrides h,l, ^ and $. They work like before, plus opening and
+nvim-origami is a plugin that handles folding.
+It adds some very nice default keymaps. It overrides h,l, ^ and $. They work like before, plus opening and
 closing folds automatically.
 
 # Marks
