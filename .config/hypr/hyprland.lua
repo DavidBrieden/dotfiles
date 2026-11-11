@@ -155,7 +155,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Autostart
 hl.on("hyprland.start", function()
-  hl.exec_cmd("hyprpaper")
-  hl.exec_cmd("waybar")
-  -- hl.exec_cmd("noctalia-shell")
+hl.exec_cmd("hyprpaper")
+hl.exec_cmd("waybar")
+hl.exec_cmd("noctalia")
 end)
