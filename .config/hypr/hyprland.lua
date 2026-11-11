@@ -11,10 +11,6 @@ hl.monitor({
   scale = "auto"
 })
 
--- Environment
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
 -- General
 hl.config({
   general = {
@@ -90,6 +86,15 @@ hl.config({
     },
   }
 })
+
+-- xCursor
+hl.config({
+  cursor = {
+    no_hardware_cursors = true,
+  }
+})
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Debug
 hl.config({
