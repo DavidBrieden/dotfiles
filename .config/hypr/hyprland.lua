@@ -95,6 +95,8 @@ hl.config({
 })
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Nordzy-cursors-white")
+hl.env("XCURSOR_THEME", "Nordzy-cursors-white")
 
 -- Debug
 hl.config({
