@@ -1,6 +1,6 @@
 local terminal = "foot"
-local fileManager = "dolphin"
-local menu = "wofi --show drun"
+local fileManager = "nautilus"
+local menu = "noctalia msg panel-toggle launcher"
 local mainMod = "SUPER"
 
 -- Monitors
@@ -144,6 +144,14 @@ hl.bind("ALT + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 -- Mouse binds
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + mouse_down",
+    hl.dsp.focus({ workspace = "e+1" })
+)
+
+-- Scrollrad hoch: vorheriger Workspace
+hl.bind("SUPER + mouse_up",
+    hl.dsp.focus({ workspace = "e-1" })
+)
 --
 -- -- Multimedia keys
 -- hl.bindel("+XF86AudioRaiseVolume",  "exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
