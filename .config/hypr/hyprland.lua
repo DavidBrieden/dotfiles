@@ -6,7 +6,7 @@ local mainMod = "SUPER"
 -- Monitors
 hl.monitor({
   output = "",
-  mode = "preferred",
+  mode = "highrr",
   position = "auto",
   scale = "auto"
 })
