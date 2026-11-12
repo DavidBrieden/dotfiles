@@ -133,6 +133,10 @@ hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "l" }))
 hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
 hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + DOWN", hl.dsp.focus({ direction = "d" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "l" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "r" }))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
 --
 -- -- Switch workspaces
 for i = 1, 10 do
