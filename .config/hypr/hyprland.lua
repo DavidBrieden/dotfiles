@@ -56,6 +56,19 @@ hl.window_rule({
     rounding    = 0,
 })
 
+hl.window_rule({
+  name = "spotify-scratch",
+  match = { class = "^Spotify$" },
+  workspace = "special:magic",
+})
+
+hl.window_rule({
+  name = "telegram-scratch",
+  match = { class = "^org.telegram.desktop$" },
+  workspace = "special:magic",
+})
+
+
 -- Master layout
 hl.config({
   master = {
@@ -134,8 +147,17 @@ for i = 1, 10 do
 end
 --
 -- -- Special workspace (scratchpad)
--- hl.bind(mainMod .. "+S", function() hl.dispatch("togglespecialworkspace, magic") end)
--- hl.bind(mainMod .. " SHIFT+S", function() hl.dispatch("movetoworkspace, special:magic") end)
+local function toggle_scratchpad()
+  local current = hl.get_active_special_workspace()
+  local was_open = current and current.name == "special:magic"
+  hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+  if not was_open then
+    hl.exec_cmd("spotify")
+    hl.exec_cmd("Telegram")
+  end
+end
+hl.bind(mainMod .. " + S", toggle_scratchpad)
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 --
 -- -- Cycle workspaces
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "e+1" }))
