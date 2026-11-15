@@ -4,12 +4,32 @@ local menu = "noctalia msg panel-toggle launcher"
 local mainMod = "SUPER"
 
 -- Monitors
+-- hl.monitor({
+--   output = "",
+--   mode = "highrr",
+--   position = "auto",
+--   scale = "auto"
+-- })
 hl.monitor({
-  output = "",
+  output = "DP-6",
   mode = "highrr",
   position = "auto",
   scale = "auto"
-})
+});
+hl.monitor({
+  output = "DP-4",
+  mode = "preferred",
+  position = "auto-left",
+  scale = "auto",
+  transform = 1
+});
+hl.monitor({
+  output = "DP-5",
+  mode = "preferred",
+  position = "auto-right",
+  scale = "auto",
+  transform = 3
+});
 
 -- General
 hl.config({
@@ -137,19 +157,19 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "l" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "r" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
---
+
 -- -- Switch workspaces
 for i = 1, 10 do
   local ws = tostring(i == 10 and 0 or i)
   hl.bind(mainMod .. " + " .. ws, hl.dsp.focus({ workspace = i }))
 end
---
+
 -- -- Move window to workspace
 for i = 1, 10 do
   local ws = tostring(i == 10 and 0 or i)
   hl.bind(mainMod .. " + SHIFT + " .. ws, hl.dsp.window.move({ workspace = i }))
 end
---
+
 -- -- Special workspace (scratchpad)
 local function toggle_scratchpad()
   local current = hl.get_active_special_workspace()
@@ -164,19 +184,19 @@ hl.bind(mainMod .. " + S", toggle_scratchpad)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 --
 -- -- Cycle workspaces
-hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("ALT + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "m+1" }))
+hl.bind("ALT + SHIFT + TAB", hl.dsp.focus({ workspace = "m-1" }))
 
 -- Mouse binds
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + mouse_down",
-    hl.dsp.focus({ workspace = "e+1" })
+    hl.dsp.focus({ workspace = "m+1" })
 )
 
 -- Scrollrad hoch: vorheriger Workspace
 hl.bind("SUPER + mouse_up",
-    hl.dsp.focus({ workspace = "e-1" })
+    hl.dsp.focus({ workspace = "m-1" })
 )
 --
 -- -- Multimedia keys
@@ -189,7 +209,7 @@ hl.bind("SUPER + mouse_up",
 
 -- Autostart
 hl.on("hyprland.start", function()
-hl.exec_cmd("hyprpaper")
-hl.exec_cmd("waybar")
-hl.exec_cmd("noctalia")
+  hl.exec_cmd("hyprpaper")
+  -- hl.exec_cmd("waybar")
+  hl.exec_cmd("noctalia")
 end)
