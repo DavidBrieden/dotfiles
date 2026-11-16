@@ -4,16 +4,10 @@ local menu = "noctalia msg panel-toggle launcher"
 local mainMod = "SUPER"
 
 -- Monitors
--- hl.monitor({
---   output = "",
---   mode = "highrr",
---   position = "auto",
---   scale = "auto"
--- })
 hl.monitor({
   output = "DP-6",
   mode = "highrr",
-  position = "auto",
+  position = "0x0",
   scale = "auto"
 });
 hl.monitor({
