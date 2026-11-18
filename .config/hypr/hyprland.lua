@@ -140,6 +140,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + E", function() hl.exec_cmd(fileManager) end)
 hl.bind(mainMod .. " + V", function() hl.dispatch(hl.dsp.window.float({ action = "toggle" })) end)
 hl.bind(mainMod .. " + R", function() hl.exec_cmd(menu) end)
+hl.bind(mainMod .. " + ALT + S", function() hl.exec_cmd("grim -g \"$(slurp)\" - | swappy -f -") end)
 -- hl.bind(mainMod .. "+J", function() hl.dispatch("togglesplit") end)
 --
 -- -- Move focus
